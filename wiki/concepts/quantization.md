@@ -71,5 +71,5 @@ The Akamai workshop adds the operational procedure for switching to FP8 in produ
 
 ## Sources
 
-- [LLM Inference at Scale Workshop](../talks/llm-inference-at-scale.md) — Harshul Jain & Tanmay Sah
-- [Agents That Own Their Inference Workshop](../talks/agents-own-inference.md) — Omer Aslan, Module 5 (FP8 workflow, format ladder, quality checks)
+- [LLM Inference at Scale Workshop](../talks/day1-1210-llm-inference-at-scale.md) — Harshul Jain & Tanmay Sah
+- [Agents That Own Their Inference Workshop](../talks/day1-0900-agents-own-inference.md) — Omer Aslan, Module 5 (FP8 workflow, format ladder, quality checks)

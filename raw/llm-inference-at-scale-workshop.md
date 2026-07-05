@@ -2,7 +2,8 @@
 
 **AIE Workshop 2026 · 2 Hours · Live Demos**  
 *From the memory equation to production engines*  
-Repo: [github.com/harshuljain13/llm-inference-at-scale](https://github.com/harshuljain13/llm-inference-at-scale)
+Repo: [github.com/harshuljain13/llm-inference-at-scale](https://github.com/harshuljain13/llm-inference-at-scale)  
+**Source:** Text notes — no slide photos taken.
 
 ---
 

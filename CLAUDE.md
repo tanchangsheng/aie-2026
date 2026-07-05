@@ -21,7 +21,8 @@ aie-2026/
 
 ## Wiki page types
 
-**Talk pages** (`wiki/talks/<slug>.md`) — one per session attended  
+**Talk pages** (`wiki/talks/day<N>-<HHMM>-<slug>.md`) — one per session attended  
+Filename is prefixed with day number and 24-hour start time (e.g. `day1-0900-agents-own-inference.md`) so files sort chronologically in a plain directory listing, matching the Talks table order in `wiki/index.md`.  
 Fields: speaker, title, date, track, key claims, notable quotes, your reactions, links to concept/speaker pages.
 
 **Speaker pages** (`wiki/speakers/<name>.md`) — one per speaker  
@@ -62,6 +63,7 @@ When Chang asks for a health check:
 - Flag contradictions between pages
 - Flag orphan pages (no inbound links)
 - Flag concepts mentioned but lacking their own page
+- Flag any "Notable Quote" or blockquoted text that doesn't trace to a genuine direct/spoken quote in its raw note (see Conventions)
 - Suggest new questions or sources to investigate
 
 ---
@@ -80,6 +82,7 @@ When Chang asks for a health check:
 - Keep talk pages factual; put your analysis in concept pages and overview.md
 - Never modify files in `raw/` — they are Chang's source of truth
 - Prefer updating existing pages over creating new ones for minor additions
+- Only format something as a blockquoted "Notable Quote" if the raw note itself marks it as a direct/spoken quote (e.g. already blockquoted, or explicitly attributed to a person speaking). Never promote bolded, emphasized, or heading-style text from a raw note into quote formatting — that misrepresents written framing as something someone said. If a raw note's phrasing is unclear or only partially legible (e.g. a blurry slide photo), say so explicitly rather than smoothing it into a clean-looking quote.
 
 ---
 

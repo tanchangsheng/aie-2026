@@ -2,7 +2,8 @@
 
 **Presenters:** Louis-François Bouchard · Samridhi Vaid · Omar Solano  
 **Organization:** Towards AI  
-**Repo:** https://github.com/towardsai/ai-tutor-app
+**Repo:** https://github.com/towardsai/ai-tutor-app  
+**Source:** Text notes — no slide photos taken.
 
 ---
 

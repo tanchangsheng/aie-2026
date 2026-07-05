@@ -22,7 +22,7 @@ Senior ML Engineer at Towards AI. 4+ years across ML/AI and software engineering
 
 ## Talks at AIE 2026
 
-- [Context Engineering in 2026: Compaction, Memory & Cost](../talks/context-engineering-2026.md) — Part 3 (open & local models, experiments, compaction trade-offs)
+- [Context Engineering in 2026: Compaction, Memory & Cost](../talks/day1-1420-context-engineering-2026.md) — Part 3 (open & local models, experiments, compaction trade-offs)
 
 ---
 

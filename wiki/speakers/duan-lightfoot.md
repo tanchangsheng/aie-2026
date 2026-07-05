@@ -23,7 +23,7 @@ Senior AI Engineer at Akamai Technologies specialising in artificial intelligenc
 
 | Talk | Day / Time | Room |
 |---|---|---|
-| [Agents That Own Their Inference: Building Production AI Agents on Dedicated GPUs](../talks/agents-own-inference.md) | Day 1 — Workshop Day · 9:00am–11:00am | Track 7 |
+| [Agents That Own Their Inference: Building Production AI Agents on Dedicated GPUs](../talks/day1-0900-agents-own-inference.md) | Day 1 — Workshop Day · 9:00am–11:00am | Track 7 |
 
 ## Recurring Themes
 

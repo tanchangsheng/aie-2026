@@ -69,5 +69,5 @@ The two workshops together frame a **three-level cost stack**: (1) application-l
 
 ## Sources
 
-- [Agents That Own Their Inference Workshop](../talks/agents-own-inference.md) — Du'an Lightfoot, Modules 1 & 9
-- [Context Engineering in 2026](../talks/context-engineering-2026.md) — Bouchard, Vaid, Solano (application-layer cost comparison)
+- [Agents That Own Their Inference Workshop](../talks/day1-0900-agents-own-inference.md) — Du'an Lightfoot, Modules 1 & 9
+- [Context Engineering in 2026](../talks/day1-1420-context-engineering-2026.md) — Bouchard, Vaid, Solano (application-layer cost comparison)

@@ -26,7 +26,7 @@ Especially interested in trustworthy AI systems: agents that can reason, use too
 
 ## Talks at AIE 2026
 
-- [LLM Inference at Scale Workshop](../talks/llm-inference-at-scale.md) (with Harshul Jain) — Day 1, 12:10pm–2:15pm, Track 3
+- [LLM Inference at Scale Workshop](../talks/day1-1210-llm-inference-at-scale.md) (with Harshul Jain) — Day 1, 12:10pm–2:15pm, Track 3
 
 ---
 

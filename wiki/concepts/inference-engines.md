@@ -99,6 +99,7 @@ The Akamai workshop adds the operational view — tuning a live vLLM deployment 
 
 ## Sources
 
-- [LLM Inference at Scale Workshop](../talks/llm-inference-at-scale.md) — Harshul Jain & Tanmay Sah
-- [What is an Inference Engine, Anyway?](../talks/what-is-an-inference-engine-anyway.md) — Charles Frye (Modal)
-- [Agents That Own Their Inference Workshop](../talks/agents-own-inference.md) — Du'an Lightfoot / Omer Aslan (operational tuning, saturation, llama.cpp addition)
+- [LLM Inference at Scale Workshop](../talks/day1-1210-llm-inference-at-scale.md) — Harshul Jain & Tanmay Sah
+- [What is an Inference Engine, Anyway?](../talks/day1-1105-what-is-an-inference-engine-anyway.md) — Charles Frye (Modal)
+- [Agents That Own Their Inference Workshop](../talks/day1-0900-agents-own-inference.md) — Du'an Lightfoot / Omer Aslan (operational tuning, saturation, llama.cpp addition)
+- [Operating Distributed Inference Systems at Scale](../talks/day4-1045-operating-distributed-inference-systems-at-scale.md) — Gupta & Ahuja (serving runtime layer in the modern inference stack: vLLM, TensorRT-LLM, SGLang — continuous batching, paged attention; positioned as one layer in a broader orchestration system)

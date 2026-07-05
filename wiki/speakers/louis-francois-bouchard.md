@@ -22,7 +22,7 @@ Co-founder of Towards AI, where he builds and teaches a practical toolkit for sh
 
 ## Talks at AIE 2026
 
-- [Context Engineering in 2026: Compaction, Memory & Cost](../talks/context-engineering-2026.md) — Part 1 (techniques + why the tutor needs them)
+- [Context Engineering in 2026: Compaction, Memory & Cost](../talks/day1-1420-context-engineering-2026.md) — Part 1 (techniques + why the tutor needs them)
 
 ---
 

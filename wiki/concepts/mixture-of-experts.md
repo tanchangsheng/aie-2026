@@ -58,4 +58,4 @@ Dense models scale with tensor and pipeline parallelism. MoE models have an addi
 
 ## Sources
 
-- [Agents That Own Their Inference Workshop](../talks/agents-own-inference.md) — Du'an Lightfoot, Module 4
+- [Agents That Own Their Inference Workshop](../talks/day1-0900-agents-own-inference.md) — Du'an Lightfoot, Module 4

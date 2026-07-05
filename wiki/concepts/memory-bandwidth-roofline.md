@@ -72,5 +72,5 @@ The MoE comparison: Qwen3-30B-A3B reads only its active experts (~6.7 GB/token a
 
 ## Sources
 
-- [LLM Inference at Scale Workshop](../talks/llm-inference-at-scale.md) — Harshul Jain & Tanmay Sah
-- [Agents That Own Their Inference Workshop](../talks/agents-own-inference.md) — Du'an Lightfoot, Modules 2 & 4 (RTX Ada numbers, MoE roofline comparison)
+- [LLM Inference at Scale Workshop](../talks/day1-1210-llm-inference-at-scale.md) — Harshul Jain & Tanmay Sah
+- [Agents That Own Their Inference Workshop](../talks/day1-0900-agents-own-inference.md) — Du'an Lightfoot, Modules 2 & 4 (RTX Ada numbers, MoE roofline comparison)

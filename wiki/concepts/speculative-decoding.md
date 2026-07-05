@@ -73,4 +73,4 @@ Speedup ≈ `normal_step_time / (verify_step_time / accepted_per_step)`
 
 ## Sources
 
-- [Agents That Own Their Inference Workshop](../talks/agents-own-inference.md) — Du'an Lightfoot / Omer Aslan, Module 6
+- [Agents That Own Their Inference Workshop](../talks/day1-0900-agents-own-inference.md) — Du'an Lightfoot / Omer Aslan, Module 6

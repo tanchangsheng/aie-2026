@@ -24,7 +24,7 @@ Charles Frye builds and teaches people to build AI applications. After publishin
 
 ## Talks at AIE 2026
 
-- [What is an Inference Engine, Anyway?](../talks/what-is-an-inference-engine-anyway.md) — Workshop, Day 1, Track 8, 11:05am–12:05pm
+- [What is an Inference Engine, Anyway?](../talks/day1-1105-what-is-an-inference-engine-anyway.md) — Workshop, Day 1, Track 8, 11:05am–12:05pm
 
 ---
 

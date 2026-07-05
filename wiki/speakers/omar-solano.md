@@ -21,7 +21,7 @@ AI Engineer at Towards AI. Architects and builds production AI agents and applie
 
 ## Talks at AIE 2026
 
-- [Context Engineering in 2026: Compaction, Memory & Cost](../talks/context-engineering-2026.md) — Part 2 (system architecture + eval harness, Gemini 3.5 baseline)
+- [Context Engineering in 2026: Compaction, Memory & Cost](../talks/day1-1420-context-engineering-2026.md) — Part 2 (system architecture + eval harness, Gemini 3.5 baseline)
 
 ---
 

@@ -11,6 +11,8 @@ speaker_linkedin: https://www.linkedin.com/in/charles-frye-38654abb/
 speaker_website: https://charlesfrye.github.io
 ---
 
+**Source:** Text notes — no slide photos taken.
+
 Why companies focus more on LLM Inference than LLM training? Because training is a cost centre but inference is a revenue centre
 
 Inference servers wrap inference engines and provide a way to serve models for inference. They handle requests, manage resources, and provide APIs for clients to interact with the models.

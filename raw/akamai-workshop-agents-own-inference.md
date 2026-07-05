@@ -2,7 +2,8 @@
 
 **Presenters:** Du'An Lightfoot (Modules 0–4, 9), Omer Aslan (Modules 5–8)  
 **Format:** Jupyter notebooks on Akamai Cloud GPU (Kubernetes / LKE), vLLM serving Qwen3-4B  
-**Repo:** https://github.com/akamai-developers/akamai-workshop-ai-inference
+**Repo:** https://github.com/akamai-developers/akamai-workshop-ai-inference  
+**Source:** Text notes — no slide photos taken.
 
 ---
 

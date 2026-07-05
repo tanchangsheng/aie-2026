@@ -57,4 +57,4 @@ Framed as the 2026 successor to prompt engineering. The key insight: what you *d
 
 ## Sources
 
-- [Context Engineering in 2026: Compaction, Memory & Cost](../talks/context-engineering-2026.md) — Bouchard, Vaid, Solano (Day 1 Workshop)
+- [Context Engineering in 2026: Compaction, Memory & Cost](../talks/day1-1420-context-engineering-2026.md) — Bouchard, Vaid, Solano (Day 1 Workshop)
