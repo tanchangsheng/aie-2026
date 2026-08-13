@@ -1,6 +1,6 @@
 ---
 type: overview
-updated: 2026-07-05 (17 sessions)
+updated: 2026-07-18 (17 sessions)
 ---
 
 # AIE World Fair 2026 — Conference Overview
@@ -111,7 +111,7 @@ Three production insights that extend beyond the Uber platform framing from Day 
 
 **Guardrails are dependencies, not settings.** They can fail. That failure requires an explicit per-policy decision (fail-open vs. fail-closed) decided by blast radius, not a global switch. This is a new failure mode most gateway designs don't address. See [Guardrails](concepts/guardrails.md).
 
-**Centralise governance, not traffic.** Manuja's architectural conclusion directly challenges the Uber pattern: a single central gateway process is a SPOF. The better split is decentralised resilience (each service owns its own fallback, timeouts, load shedding) with centralised governance (cost attribution, guardrail-failure events flow to a shared control plane). This is a genuine architectural disagreement in the conference record — Uber optimises for policy consistency at scale; Twilio optimises for blast-radius isolation.
+**Centralise governance, not traffic.** Manuja's architectural conclusion: a single central gateway process is a SPOF. The better split is decentralised resilience (each service owns its own fallback, timeouts, load shedding) with centralised governance (cost attribution, guardrail-failure events flow to a shared control plane). Note (per Chang's review, 2026-07-18): this is not a direct contradiction of the Uber pattern — the Uber talk notes describe centralised governance but are silent on resilience ownership, so Manuja's split is better read as a complementary caution for any centralisation effort. Uber optimises for policy consistency at scale; Twilio guards against blast radius.
 
 See: [Productionizing LLM Gateways](talks/day2-1425-productionizing-llm-gateways.md) · [Model Gateway concept](concepts/model-gateway.md)
 
@@ -125,7 +125,7 @@ See: [Productionizing LLM Gateways](talks/day2-1425-productionizing-llm-gateways
 - **Local vs cloud for agents**: At ~10k turns/day, the gap between DeepSeek ($1.9k/mo) and Gemini ($34k/mo) is already an 18× decision. The Akamai workshop adds the self-hosted GPU as the third option. At what volume does a dedicated $1.50/hr card beat both?
 - **Routing vs. serving optimisation**: Do you reduce cost by routing to a cheaper model, or by making the expensive model cheaper to run (quantization, caching, batching)? The Day 1 and Day 3 talks represent two different approaches to the same cost problem. The answer is both, but the interaction between them — does serving-layer optimisation change the routing economics? — is unexplored in the talks.
 - **Cache-aware routing in practice**: Kofman claims naive routing that ignores KV cache state can lose all of its paper savings. This is a strong claim. How often does it hold in practice vs. short sessions where the cache economics don't matter much?
-- **Central vs. decentralised gateway**: Uber centralises the full middleware chain for policy consistency. Manuja argues this creates a SPOF and advocates for each service owning its resilience. Which failure mode is worse in practice — policy inconsistency or shared-gateway outage? This likely depends on org size and compliance obligations.
+- **Central vs. decentralised gateway**: Uber centralises the full middleware chain for policy consistency. Manuja warns a central gateway process is a SPOF and advocates for each service owning its resilience. The Uber notes are silent on resilience ownership, so the positions may be complementary rather than opposed. The open question stands: which failure mode is worse in practice — policy inconsistency or shared-gateway outage? This likely depends on org size and compliance obligations.
 - **FP8 vs INT4**: The Harshul/Tanmay session emphasised INT4; the Akamai workshop uses FP8. Both reduce weight bytes; FP8 is more conservative on quality risk and better supported by current serving stacks.
 
 ## Emerging Consensus

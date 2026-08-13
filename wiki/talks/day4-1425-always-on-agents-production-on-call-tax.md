@@ -66,12 +66,12 @@ The agent tracks *why* it woke up each time and acts accordingly.
 
 Resolve AI ships pre-built templates to lower the adoption bar:
 
-| Workload | Trigger | Template |
-|----------|---------|----------|
-| Deployment monitoring | Deploy event | Engineering Deploys Agent |
-| Scheduled health & anomaly checks | Schedule / alert | PostgreSQL Watch |
-| Operational reports & handoffs | Schedule | Daily Pulse |
-| First responder to engineering questions | Slack message | Primary on-caller |
+| Workload                                 | Trigger          | Template                  |
+| ---------------------------------------- | ---------------- | ------------------------- |
+| Deployment monitoring                    | Deploy event     | Engineering Deploys Agent |
+| Scheduled health & anomaly checks        | Schedule / alert | PostgreSQL Watch          |
+| Operational reports & handoffs           | Schedule         | Daily Pulse               |
+| First responder to engineering questions | Slack message    | Primary on-caller         |
 
 **7. The platform is composable — you can drive it or be driven by it.**
 

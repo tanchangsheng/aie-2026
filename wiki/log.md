@@ -236,3 +236,5 @@ Append-only record of all operations. Format: `## [YYYY-MM-DD] <operation> | <ti
 - Updated: wiki/index.md (new talk row, speaker row, human-verdict summary note; count → 16)
 - Updated: wiki/overview.md (new theme 24: background agents and the invisible toil problem; new open questions; sessions count → 16)
 - No new concept pages: "Production Context," "Background Agents," and "Invisible Toil" are 1st-source-only from this talk — flagged in talk page and overview for concept creation when a 2nd source appears
+
+## [2026-07-18] update | Softened Uber/Twilio gateway framing in overview.md — per Chang's review, Uber notes are silent on resilience ownership, so Manuja's "centralise governance, decentralise traffic" is a complementary caution, not a genuine disagreement
