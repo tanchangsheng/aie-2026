@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4">
+<title>AIE World's Fair 2026 — Systems, Evidence, and Accountability</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+
+/* === OBSIDIAN THEME CSS === */
+/* Dark Interactive Theme
+   Dark background with blue/green/orange accents.
+   The default Pro theme. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --bg: #0b0e14;
+  --bg-card: #131720;
+  --bg-card-hover: #1a1f2e;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-dim: #6e7681;
+  --accent-blue: #58a6ff;
+  --accent-green: #3fb950;
+  --accent-orange: #f0883e;
+  --accent-red: #f85149;
+  --accent-purple: #a371f7;
+  --accent-yellow: #d29922;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.18);
+}
+
+/* ====== OBSIDIAN BACKGROUND: GRADIENT MESH + HALFTONE ====== */
+
+/* Gradient mesh — layered color orbs for spatial depth */
+.deck::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 85%, rgba(88, 166, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(163, 113, 247, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(63, 185, 80, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Halftone dot texture — subtle depth grain */
+.deck::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 6px 6px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ====== GLOW BLOBS: GRADIENT ORBS + DRIFT ====== */
+
+.glow-blob {
+  background: none !important;
+  animation: driftOrb 30s ease-in-out infinite !important;
+}
+.glow-blue {
+  background: radial-gradient(circle, rgba(88, 166, 255, 0.2) 0%, transparent 70%) !important;
+}
+.glow-purple {
+  background: radial-gradient(circle, rgba(163, 113, 247, 0.15) 0%, transparent 70%) !important;
+  animation-duration: 25s !important;
+  animation-direction: reverse !important;
+}
+.glow-green {
+  background: radial-gradient(circle, rgba(63, 185, 80, 0.12) 0%, transparent 70%) !important;
+  animation-duration: 35s !important;
+}
+
+/* ====== ANIMATION PERSONALITY: DRAMATIC, CINEMATIC ====== */
+
+.slide.active .anim-1 { animation: blurFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both !important; }
+.slide.active .anim-2 { animation: blurFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both !important; }
+.slide.active .anim-3 { animation: blurFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both !important; }
+.slide.active .anim-4 { animation: blurFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both !important; }
+.slide.active .anim-5 { animation: blurFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both !important; }
+.slide.active .bounce-1 { animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both !important; }
+.slide.active .bounce-2 { animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both !important; }
+.slide.active .bounce-3 { animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both !important; }
+.slide.active .bounce-4 { animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both !important; }
+.slide.active .pop-1 { animation: countPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both !important; }
+.slide.active .pop-2 { animation: countPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both !important; }
+.slide.active .pop-3 { animation: countPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both !important; }
+
+
+/* === SHARED PRO COMPONENT CSS === */
+/* ===========================================
+   SHARED COMPONENT CSS
+   Used by all Pro presets. Include this file
+   along with a theme file from themes/.
+   =========================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: var(--font-body, 'Inter, -apple-system, sans-serif');
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -- Deck & Slides -- */
+.deck { position: relative; width: 100vw; height: 100vh; }
+
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 36px 48px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(.4,0,.2,1);
+  overflow: hidden;
+}
+.slide.active { opacity: 1; pointer-events: auto; }
+
+/* -- Particles -- */
+.particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.particle {
+  position: absolute; width: 2px; height: 2px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); animation: floatP linear infinite;
+}
+@keyframes floatP {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.8; } 90% { opacity: 0.8; }
+  100% { transform: translateY(-10vh) translateX(25px); opacity: 0; }
+}
+
+/* -- Chrome -- */
+.branding {
+  position: fixed; top: 24px; right: 32px; z-index: 100;
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  display: flex; align-items: center; gap: 8px;
+}
+.branding-icon {
+  width: 20px; height: 20px; border: 2px solid var(--text-dim);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800;
+}
+.progress-bar {
+  position: fixed; bottom: 0; left: 0; height: 3px; z-index: 100;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green));
+  transition: width 0.4s ease;
+}
+.slide-counter {
+  position: fixed; bottom: 20px; right: 32px; font-size: 13px;
+  font-weight: 500; color: var(--text-dim); z-index: 100; font-variant-numeric: tabular-nums;
+}
+.nav-hints {
+  position: fixed; bottom: 20px; left: 32px; font-size: 12px;
+  color: var(--text-dim); z-index: 100;
+}
+.nav-hints kbd {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 24px; height: 22px; padding: 0 6px;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+  border-radius: 4px; font-size: 11px; margin: 0 2px;
+}
+.slide-nav {
+  position: fixed; right: 16px; top: 50%; transform: translateY(-50%);
+  z-index: 100; display: flex; flex-direction: column; gap: 6px;
+}
+.slide-nav-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s ease;
+}
+.slide-nav-dot.active {
+  background: var(--accent-blue); transform: scale(1.6);
+  box-shadow: 0 0 8px var(--accent-blue);
+}
+.slide-nav-dot:hover { background: rgba(255,255,255,0.4); transform: scale(1.3); }
+
+/* -- Typography -- */
+.slide-tag {
+  font-size: clamp(13px, 1.2vw, 15px); font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--accent-blue); margin-bottom: 16px;
+}
+h1 { font-size: clamp(36px,5vw,64px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; text-align: center; }
+h2 { font-size: clamp(28px,3.5vw,48px); font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 12px; text-align: center; }
+.subtitle { font-size: clamp(17px, 1.8vw, 24px); color: var(--text-muted); font-weight: 400; line-height: 1.5; text-align: center; max-width: 800px; }
+
+.highlight-orange { color: var(--accent-orange); }
+.highlight-blue { color: var(--accent-blue); }
+.highlight-green { color: var(--accent-green); }
+.highlight-purple { color: var(--accent-purple); }
+.highlight-red { color: var(--accent-red); }
+.highlight-yellow { color: var(--accent-yellow); }
+.gradient-text { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.rainbow-text { background: linear-gradient(90deg, #58a6ff, #a371f7, #3fb950, #d29922, #f0883e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.rainbow-line { width: 200px; height: 2px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green), var(--accent-yellow), var(--accent-orange)); border-radius: 2px; margin: 20px 0; }
+
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+
+/* -- Glow blobs -- */
+.glow-blob { position: absolute; width: 400px; height: 400px; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; }
+.glow-blue { background: var(--accent-blue); }
+.glow-purple { background: var(--accent-purple); }
+.glow-green { background: var(--accent-green); }
+
+/* ====== ANIMATIONS ====== */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+@keyframes bounceIn {
+  0% { opacity:0; transform: scale(0.3) translateY(40px); }
+  50% { opacity:1; transform: scale(1.05) translateY(-8px); }
+  70% { transform: scale(0.95) translateY(4px); }
+  100% { opacity:1; transform: scale(1) translateY(0); }
+}
+@keyframes bounceInSoft {
+  0% { opacity:0; transform: translateY(30px); }
+  60% { opacity:1; transform: translateY(-6px); }
+  80% { transform: translateY(3px); }
+  100% { opacity:1; transform: translateY(0); }
+}
+@keyframes scaleReveal {
+  0% { opacity:0; transform: scale(0.85); }
+  100% { opacity:1; transform: scale(1); }
+}
+@keyframes slideInLeft { from { opacity:0; transform:translateX(-50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes slideInRight { from { opacity:0; transform:translateX(50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(88,166,255,0); }
+  50% { box-shadow: 0 0 20px rgba(88,166,255,0.15); }
+}
+@keyframes countPop {
+  0% { opacity:0; transform: scale(0.5); }
+  60% { transform: scale(1.1); }
+  100% { opacity:1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes blurFadeIn {
+  from { opacity: 0; filter: blur(8px); transform: translateY(20px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+@keyframes driftOrb {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(15px, -20px); }
+  50% { transform: translate(-10px, -35px); }
+  75% { transform: translate(-20px, -15px); }
+}
+@keyframes gridPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.slide.active .anim-1 { animation: fadeInUp 0.5s ease 0.1s both; }
+.slide.active .anim-2 { animation: fadeInUp 0.5s ease 0.25s both; }
+.slide.active .anim-3 { animation: bounceInSoft 0.6s ease 0.35s both; }
+.slide.active .anim-4 { animation: fadeInUp 0.5s ease 0.55s both; }
+.slide.active .anim-5 { animation: fadeInUp 0.5s ease 0.7s both; }
+.slide.active .bounce-1 { animation: bounceIn 0.7s ease 0.2s both; }
+.slide.active .bounce-2 { animation: bounceIn 0.7s ease 0.35s both; }
+.slide.active .bounce-3 { animation: bounceIn 0.7s ease 0.5s both; }
+.slide.active .bounce-4 { animation: bounceIn 0.7s ease 0.65s both; }
+.slide.active .slide-l { animation: slideInLeft 0.6s ease 0.3s both; }
+.slide.active .slide-r { animation: slideInRight 0.6s ease 0.3s both; }
+.slide.active .pop-1 { animation: countPop 0.6s ease 0.3s both; }
+.slide.active .pop-2 { animation: countPop 0.6s ease 0.45s both; }
+.slide.active .pop-3 { animation: countPop 0.6s ease 0.6s both; }
+
+/* ====== FLIP CARDS ====== */
+.flip-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  width: 100%; max-width: 920px; margin-top: 24px;
+}
+.flip-bounce-wrap { perspective: 1200px; }
+.flip-card {
+  height: 190px; cursor: pointer; position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+.flip-card.flipped { transform: rotateY(180deg); }
+.flip-card:hover .flip-front { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+
+.flip-front, .flip-back {
+  position: absolute; inset: 0; backface-visibility: hidden;
+  border-radius: 14px; padding: 24px;
+  display: flex; flex-direction: column;
+  border: 1.5px solid var(--border);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.flip-front { background: var(--bg-card); justify-content: center; }
+.flip-front .flip-hint {
+  position: absolute; bottom: 10px; right: 14px;
+  font-size: 11px; color: var(--text-dim); opacity: 0.5;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.flip-back {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
+  transform: rotateY(180deg);
+  justify-content: center; align-items: center; text-align: center;
+}
+.flip-back .flip-detail { font-size: clamp(14px, 1.3vw, 16px); color: var(--text-muted); line-height: 1.6; }
+.flip-back .flip-detail strong { color: var(--text); }
+.flip-back .flip-icon-big { font-size: 36px; margin-bottom: 12px; }
+
+.flip-front.border-orange { border-color: rgba(240,136,62,0.35); }
+.flip-front.border-yellow { border-color: rgba(210,153,34,0.35); }
+.flip-front.border-red { border-color: rgba(248,81,73,0.35); }
+.flip-card:hover .flip-front.border-orange { border-color: rgba(240,136,62,0.7); box-shadow: 0 0 24px rgba(240,136,62,0.1); }
+.flip-card:hover .flip-front.border-yellow { border-color: rgba(210,153,34,0.7); box-shadow: 0 0 24px rgba(210,153,34,0.1); }
+.flip-card:hover .flip-front.border-red { border-color: rgba(248,81,73,0.7); box-shadow: 0 0 24px rgba(248,81,73,0.1); }
+
+.flip-title { font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; margin-bottom: 4px; }
+.flip-subtitle { font-size: clamp(14px, 1.2vw, 16px); font-weight: 600; }
+.flip-icon { font-size: 28px; margin-bottom: 10px; }
+
+/* ====== EXPANDABLE CARDS ====== */
+.card-v2 {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px; position: relative;
+  cursor: pointer; transition: all 0.35s cubic-bezier(.4,0,.2,1);
+  overflow: hidden;
+}
+.card-v2::before {
+  content: ''; position: absolute; inset: -1px; border-radius: 14px;
+  background: linear-gradient(135deg, transparent, transparent);
+  opacity: 0; transition: opacity 0.35s ease; z-index: -1;
+}
+.card-v2:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--border-hover); background: var(--bg-card-hover);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
+}
+.card-v2:hover::before { opacity: 1; }
+.card-v2.glow-orange:hover { box-shadow: 0 12px 40px rgba(240,136,62,0.12), 0 0 30px rgba(240,136,62,0.08); border-color: rgba(240,136,62,0.5); }
+.card-v2.glow-blue:hover { box-shadow: 0 12px 40px rgba(88,166,255,0.12), 0 0 30px rgba(88,166,255,0.08); border-color: rgba(88,166,255,0.5); }
+.card-v2.glow-green:hover { box-shadow: 0 12px 40px rgba(63,185,80,0.12), 0 0 30px rgba(63,185,80,0.08); border-color: rgba(63,185,80,0.5); }
+.card-v2.glow-purple:hover { box-shadow: 0 12px 40px rgba(163,113,247,0.12), 0 0 30px rgba(163,113,247,0.08); border-color: rgba(163,113,247,0.5); }
+
+.card-v2 .card-icon { font-size: 28px; margin-bottom: 12px; transition: transform 0.3s ease; }
+.card-v2:hover .card-icon { transform: scale(1.15); }
+.card-v2 .card-title { font-size: clamp(16px, 1.4vw, 19px); font-weight: 700; margin-bottom: 3px; }
+.card-v2 .card-desc { font-size: clamp(14px, 1.2vw, 16px); color: var(--text-muted); line-height: 1.4; }
+
+.card-expand {
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s ease, margin-top 0.3s ease;
+  margin-top: 0;
+}
+.card-v2.expanded .card-expand { max-height: 140px; opacity: 1; margin-top: 12px; }
+.card-expand-inner {
+  padding-top: 12px; border-top: 1px solid var(--border);
+  font-size: clamp(12px, 1.1vw, 14px); color: var(--text-dim); line-height: 1.5;
+}
+.card-expand-inner code {
+  font-family: var(--font-mono, 'JetBrains Mono, monospace');
+  background: rgba(255,255,255,0.04); padding: 2px 6px; border-radius: 4px;
+  font-size: clamp(11px, 1vw, 13px);
+}
+.card-v2 .expand-hint {
+  position: absolute; bottom: 8px; right: 12px;
+  font-size: 11px; color: var(--text-dim); opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+.card-v2:hover .expand-hint { opacity: 0.8; }
+.card-v2.expanded .expand-hint { transform: rotate(180deg); }
+
+/* ====== CODE BLOCKS ====== */
+.code-window {
+  width: 100%; max-width: 780px; background: #0d1117;
+  border-radius: 12px; overflow: hidden; margin-top: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5); text-align: left;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.code-window:hover {
+  box-shadow: 0 24px 72px rgba(0,0,0,0.6), 0 0 0 1px rgba(88,166,255,0.15);
+  transform: translateY(-2px);
+}
+.code-titlebar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 16px; background: rgba(255,255,255,0.025);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.code-dot { width: 12px; height: 12px; border-radius: 50%; }
+.code-dot.red { background: #ff5f56; }
+.code-dot.yellow { background: #ffbd2e; }
+.code-dot.green { background: #27c93f; }
+.code-filename {
+  font-size: clamp(12px, 1.1vw, 14px); color: var(--text-dim);
+  font-family: var(--font-mono, 'JetBrains Mono, monospace'); margin-left: 8px;
+}
+.code-body {
+  padding: 18px 24px; font-family: var(--font-mono, 'JetBrains Mono, monospace');
+  font-size: clamp(13px, 1.2vw, 15px); line-height: 1.7; overflow-x: auto;
+  white-space: pre; text-align: left; color: #abb2bf;
+}
+.code-body .ln { color: #4b5263; user-select: none; display: inline-block; width: 24px; text-align: right; margin-right: 20px; }
+.code-body .tag { color: #e06c75; }
+.code-body .attr { color: #d19a66; }
+.code-body .str { color: #98c379; }
+.code-body .kw { color: #c678dd; }
+.code-body .fn { color: #61afef; }
+.code-body .prop { color: #e5c07b; }
+.code-body .punc { color: #56b6c2; }
+.code-body .comment { color: #5c6370; font-style: italic; }
+
+/* ====== ARCHITECTURE FLOW ====== */
+.arch-flow {
+  display: flex; align-items: center; gap: 16px;
+  width: 100%; max-width: 1000px; margin-top: 32px;
+}
+.arch-box {
+  flex: 1; min-width: 0; background: var(--bg-card);
+  border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 28px 16px; text-align: center;
+  transition: all 0.35s cubic-bezier(.4,0,.2,1); cursor: pointer;
+}
+.arch-box:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.4); border-color: var(--border-hover); }
+.arch-box.box-blue { border-color: rgba(88,166,255,0.4); }
+.arch-box.box-yellow { border-color: rgba(210,153,34,0.4); }
+.arch-box.box-green { border-color: rgba(63,185,80,0.4); }
+.arch-box:hover.box-blue { border-color: rgba(88,166,255,0.8); box-shadow: 0 16px 48px rgba(88,166,255,0.08); }
+.arch-box:hover.box-yellow { border-color: rgba(210,153,34,0.8); box-shadow: 0 16px 48px rgba(210,153,34,0.08); }
+.arch-box:hover.box-green { border-color: rgba(63,185,80,0.8); box-shadow: 0 16px 48px rgba(63,185,80,0.08); }
+
+.arch-icon { font-size: 40px; margin-bottom: 14px; transition: transform 0.3s ease; }
+.arch-box:hover .arch-icon { transform: scale(1.15); animation: floatBob 1.5s ease infinite; }
+.arch-label { font-size: clamp(20px, 1.8vw, 24px); font-weight: 800; }
+.arch-label.text-blue { color: var(--accent-blue); }
+.arch-label.text-yellow { color: var(--accent-yellow); }
+.arch-label.text-green { color: var(--accent-green); }
+.arch-role { font-size: clamp(14px, 1.2vw, 16px); color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+.arch-detail {
+  font-size: clamp(12px, 1vw, 14px); color: var(--text-dim); margin-top: 10px;
+  font-family: var(--font-mono, 'JetBrains Mono, monospace');
+  background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px;
+}
+
+.arch-arrow {
+  font-size: 14px; color: var(--text-dim);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  flex-shrink: 0; min-width: 60px;
+}
+.arch-arrow span { font-size: clamp(11px, 1vw, 13px); white-space: nowrap; }
+.arrow-line { width: 40px; height: 2px; background: var(--text-dim); position: relative; }
+.arrow-line::after {
+  content: ''; position: absolute; right: -1px; top: -4px;
+  border: 5px solid transparent; border-left: 6px solid var(--text-dim);
+}
+
+/* ====== STATS ====== */
+.stats-row { display: flex; gap: 24px; margin-top: 32px; width: 100%; max-width: 1000px; }
+.stat-card {
+  flex: 1; background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 32px 24px; transition: all 0.35s ease; text-align: left;
+}
+.stat-card:hover {
+  transform: translateY(-6px) scale(1.02); border-color: var(--border-hover);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+}
+.stat-number { font-size: clamp(52px,7vw,80px); font-weight: 900; line-height: 1; margin-bottom: 8px; }
+.stat-number.blue { color: var(--accent-blue); }
+.stat-number.green { color: var(--accent-green); }
+.stat-number.orange { color: var(--accent-orange); }
+.stat-label { font-size: clamp(16px, 1.5vw, 20px); font-weight: 700; margin-bottom: 4px; }
+.stat-desc { font-size: clamp(14px, 1.2vw, 16px); color: var(--text-muted); }
+
+/* ====== VS / COMPARISON ====== */
+.vs-container { display: flex; align-items: center; gap: 28px; margin-top: 32px; width: 100%; max-width: 960px; }
+.vs-card {
+  flex: 1; background: var(--bg-card); border-radius: 14px;
+  padding: 32px 24px; text-align: center;
+  border: 1.5px solid var(--border); transition: all 0.35s ease;
+}
+.vs-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.vs-card.card-left { border-color: rgba(163,113,247,0.35); }
+.vs-card.card-right { border-color: rgba(88,166,255,0.35); }
+.vs-card.card-left:hover { border-color: rgba(163,113,247,0.7); box-shadow: 0 12px 40px rgba(163,113,247,0.1); }
+.vs-card.card-right:hover { border-color: rgba(88,166,255,0.7); box-shadow: 0 12px 40px rgba(88,166,255,0.1); }
+.vs-label-top { font-size: clamp(12px, 1vw, 14px); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.vs-name { font-size: clamp(32px, 3vw, 40px); font-weight: 900; margin-bottom: 12px; }
+.vs-desc { font-size: clamp(14px, 1.3vw, 17px); color: var(--text-muted); margin-bottom: 8px; }
+.vs-badge { display: inline-block; font-size: clamp(12px, 1.1vw, 14px); font-family: var(--font-mono, 'JetBrains Mono, monospace'); padding: 4px 12px; border-radius: 20px; background: rgba(255,255,255,0.05); color: var(--text-dim); }
+.vs-plus {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 700; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(163,113,247,0.2), rgba(88,166,255,0.2));
+  border: 1px solid rgba(255,255,255,0.1); animation: pulseGlow 3s ease infinite;
+}
+
+/* ====== AUTH COMPARE (flip) ====== */
+.auth-compare { display: flex; align-items: center; gap: 28px; margin-top: 32px; width: 100%; max-width: 880px; perspective: 1200px; }
+.auth-flip-wrap { flex: 1; perspective: 1200px; }
+.auth-flip {
+  height: 280px; cursor: pointer; position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+.auth-flip.flipped { transform: rotateY(180deg); }
+.auth-front, .auth-back {
+  position: absolute; inset: 0; backface-visibility: hidden;
+  border-radius: 14px; padding: 28px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border: 1.5px solid var(--border);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.auth-front { background: var(--bg-card); }
+.auth-back { background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover)); transform: rotateY(180deg); }
+.auth-front.bad { border-color: rgba(248,81,73,0.3); }
+.auth-front.good { border-color: rgba(63,185,80,0.3); }
+.auth-flip:hover .auth-front.bad { border-color: rgba(248,81,73,0.6); box-shadow: 0 8px 32px rgba(248,81,73,0.08); }
+.auth-flip:hover .auth-front.good { border-color: rgba(63,185,80,0.6); box-shadow: 0 8px 32px rgba(63,185,80,0.08); }
+.auth-icon { font-size: 40px; margin-bottom: 14px; }
+.auth-name { font-size: clamp(18px, 1.5vw, 22px); font-weight: 700; margin-bottom: 8px; }
+.auth-status { font-size: 36px; margin-bottom: 8px; }
+.auth-desc { font-size: clamp(13px, 1.1vw, 15px); color: var(--text-dim); font-family: var(--font-mono, 'JetBrains Mono, monospace'); }
+.auth-vs { font-size: clamp(18px, 1.5vw, 22px); font-weight: 800; color: var(--text-dim); flex-shrink: 0; }
+.auth-front .flip-hint { position: absolute; bottom: 10px; font-size: 11px; color: var(--text-dim); opacity: 0.4; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ====== USE CASES (expand grid) ====== */
+.use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; max-width: 920px; margin-top: 28px; }
+
+/* ====== STATUS TIMELINE ====== */
+.status-timeline { width: 100%; max-width: 800px; margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.status-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 20px; background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; transition: all 0.3s ease; cursor: default;
+}
+.status-item:hover { transform: translateX(8px); border-color: var(--border-hover); background: var(--bg-card-hover); }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.status-dot.green { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+.status-dot.yellow { background: var(--accent-yellow); box-shadow: 0 0 8px var(--accent-yellow); }
+.status-dot.orange { background: var(--accent-orange); box-shadow: 0 0 8px var(--accent-orange); }
+.status-dot.red { background: var(--accent-red); box-shadow: 0 0 8px var(--accent-red); }
+.status-text { font-size: clamp(15px, 1.3vw, 18px); font-weight: 500; }
+.status-text strong { font-weight: 700; color: var(--text); }
+.slide.active .stag-1 { animation: bounceInSoft 0.5s ease 0.15s both; }
+.slide.active .stag-2 { animation: bounceInSoft 0.5s ease 0.25s both; }
+.slide.active .stag-3 { animation: bounceInSoft 0.5s ease 0.35s both; }
+.slide.active .stag-4 { animation: bounceInSoft 0.5s ease 0.45s both; }
+.slide.active .stag-5 { animation: bounceInSoft 0.5s ease 0.55s both; }
+
+/* ====== FULLSTACK BAR ====== */
+.fullstack-bar {
+  display: flex; width: 100%; max-width: 800px; margin-top: 24px;
+  border-radius: 10px; overflow: hidden; border: 1px solid var(--border);
+}
+.fullstack-half { flex: 1; padding: 16px 24px; text-align: center; font-weight: 700; font-size: clamp(14px, 1.3vw, 17px); transition: all 0.3s ease; }
+.fullstack-half.backend { background: rgba(163,113,247,0.1); color: var(--accent-purple); border-right: 1px solid var(--border); }
+.fullstack-half.frontend { background: rgba(88,166,255,0.1); color: var(--accent-blue); }
+.fullstack-half:hover { filter: brightness(1.3); }
+
+/* ====== CTA BOX ====== */
+.cta-box {
+  margin-top: 32px; padding: 28px 40px; border-radius: 16px;
+  background: linear-gradient(135deg, rgba(88,166,255,0.06), rgba(163,113,247,0.06));
+  border: 1px solid rgba(88,166,255,0.15); text-align: center; max-width: 700px;
+  transition: all 0.3s ease;
+}
+.cta-box:hover { border-color: rgba(88,166,255,0.3); box-shadow: 0 8px 40px rgba(88,166,255,0.06); }
+
+/* ====== CHART ====== */
+.chart-container {
+  width: 100%; max-width: 920px; height: min(50vh, 400px);
+  margin-top: 24px; position: relative;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px 24px;
+  transition: all 0.35s ease;
+}
+.chart-container:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.chart-container.chart-square {
+  max-width: 480px; height: min(50vh, 420px);
+}
+.chart-container canvas {
+  width: 100% !important; height: 100% !important;
+}
+
+/* ====== TABLE ====== */
+.table-wrap {
+  width: 100%; max-width: 920px; margin-top: 24px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+  transition: all 0.35s ease;
+}
+.table-wrap:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.table-wrap table {
+  width: 100%; border-collapse: collapse;
+  font-size: clamp(13px, 1.3vw, 16px);
+}
+.table-wrap thead th {
+  padding: 14px 20px; text-align: left;
+  font-weight: 600; font-size: clamp(12px, 1.1vw, 14px);
+  color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;
+  background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border);
+}
+.table-wrap tbody td {
+  padding: 12px 20px; border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr { transition: background 0.2s ease; }
+.table-wrap tbody tr:hover { background: var(--bg-card-hover); }
+.table-wrap .cell-highlight { font-weight: 600; }
+.table-wrap .cell-muted { color: var(--text-muted); }
+
+/* ====== IMAGE SLIDE ====== */
+.image-frame {
+  margin-top: 24px; display: flex; flex-direction: column; align-items: center;
+  max-width: 920px; width: 100%;
+}
+.image-frame .slide-image {
+  max-width: 100%; max-height: min(50vh, 400px);
+  object-fit: contain; border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.image-frame:hover .slide-image {
+  transform: scale(1.01);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.image-frame.image-screenshot .slide-image {
+  border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.image-frame.image-screenshot:hover .slide-image {
+  border-color: var(--border-hover);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+.image-frame.image-logo .slide-image {
+  max-height: min(30vh, 200px);
+}
+.image-fullbleed {
+  position: absolute; inset: 0; z-index: 0;
+}
+.image-fullbleed img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.25) saturate(1.2);
+}
+.image-overlay {
+  position: relative; z-index: 1; text-align: center; padding: 36px 48px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  width: 100%; height: 100%;
+}
+.image-overlay h2, .image-overlay .subtitle {
+  text-shadow: 0 2px 16px rgba(0,0,0,0.8);
+}
+
+/* ====== CONTENT BLOCK ====== */
+/* The default content slide component: title + text.
+   4 variants: Statement (default), Numbered, Problem/Fix, Key Point.
+   Uses theme variables for automatic theming. */
+
+.cb-wrap {
+  width: 100%; max-width: 800px; text-align: left;
+  display: flex; flex-direction: column; gap: clamp(8px, 1.5vh, 16px);
+}
+
+/* Number badge — for numbered/listicle slides */
+.cb-number {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: clamp(13px, 1.2vw, 16px); font-weight: 700;
+  letter-spacing: 0.1em; color: var(--text-dim);
+  opacity: 0.5;
+}
+
+/* Heading — left-aligned slide title */
+.cb-heading {
+  font-size: clamp(28px, 3.5vw, 48px); font-weight: 800;
+  line-height: 1.15; letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+/* Body text — the main paragraph(s) */
+.cb-body {
+  font-size: clamp(15px, 1.5vw, 20px); line-height: 1.6;
+  color: var(--text-muted); max-width: 680px;
+}
+
+/* Accent span inside body text */
+.cb-body .cb-accent {
+  font-weight: 600; color: var(--text);
+}
+
+/* -- Problem / Fix pair -- */
+.cb-pair {
+  display: flex; gap: clamp(10px, 1.5vw, 20px);
+  width: 100%; margin-top: clamp(4px, 1vh, 8px);
+}
+@media (max-width: 700px) {
+  .cb-pair { flex-direction: column; }
+}
+
+.cb-card {
+  flex: 1; padding: clamp(14px, 2vw, 24px);
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+.cb-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.cb-card.problem {
+  background: rgba(248, 81, 73, 0.04);
+  border-color: rgba(248, 81, 73, 0.2);
+}
+.cb-card.fix {
+  border-color: rgba(88, 166, 255, 0.25);
+}
+
+/* Accent-colored fix cards — set via inline style or accent class */
+.cb-card.fix.accent-green { border-color: rgba(63, 185, 80, 0.25); }
+.cb-card.fix.accent-orange { border-color: rgba(240, 136, 62, 0.25); }
+.cb-card.fix.accent-purple { border-color: rgba(163, 113, 247, 0.25); }
+
+.cb-card-label {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: clamp(10px, 0.9vw, 12px); font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: clamp(6px, 1vh, 10px);
+  display: flex; align-items: center; gap: 0.5em;
+}
+.cb-card-label.problem-label { color: var(--accent-red); }
+.cb-card-label.fix-label { color: var(--accent-blue); }
+
+.cb-card-text {
+  font-size: clamp(13px, 1.2vw, 16px); line-height: 1.55;
+  color: var(--text-muted);
+}
+.cb-card-text .cb-cmd {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-weight: 600; color: var(--accent-blue);
+}
+
+/* -- Key Point variant -- */
+.cb-keyquote {
+  font-size: clamp(24px, 3vw, 40px); font-weight: 700;
+  line-height: 1.25; color: var(--text);
+  border-left: 3px solid var(--accent-blue);
+  padding-left: clamp(12px, 2vw, 24px);
+}
+.cb-detail {
+  font-size: clamp(14px, 1.3vw, 18px); line-height: 1.6;
+  color: var(--text-muted); max-width: 640px;
+  margin-top: clamp(6px, 1vh, 12px);
+}
+
+
+/* === DECK-SPECIFIC CUSTOM CSS === */
+
+/* === DECK-SPECIFIC FITTING OVERRIDES === */
+.deck { height: 100vh; height: 100dvh; overflow: hidden; }
+.slide { height: 100vh; height: 100dvh; overflow: hidden; padding: clamp(28px, 4vw, 58px); }
+.slide > * { position: relative; z-index: 1; }
+.deck-credit { color: var(--text-dim); font-size: clamp(13px, 1.2vw, 16px); text-align: center; max-width: 760px; line-height: 1.5; }
+.closing-line { font-size: clamp(18px, 2vw, 28px); color: var(--text); font-weight: 700; line-height: 1.35; }
+.blue-dot { background: var(--accent-blue); box-shadow: 0 0 8px var(--accent-blue); }
+
+/* === SYSTEMS RING DIAGRAM === */
+.systems-ring {
+  width: min(68vw, 720px);
+  height: min(46vh, 420px);
+  margin-top: clamp(18px, 3vh, 32px);
+  position: relative;
+}
+.ring-core {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: clamp(120px, 16vw, 190px); height: clamp(120px, 16vw, 190px);
+  border-radius: 50%; display: grid; place-items: center;
+  background: radial-gradient(circle, rgba(88,166,255,0.22), rgba(19,23,32,0.96));
+  border: 1px solid rgba(88,166,255,0.5);
+  font-family: var(--font-mono); font-weight: 800; color: var(--accent-blue);
+  letter-spacing: 0; font-size: clamp(18px, 2vw, 28px);
+  box-shadow: 0 0 60px rgba(88,166,255,0.12);
+}
+.ring-node {
+  position: absolute; padding: clamp(10px, 1.2vw, 15px) clamp(14px, 1.5vw, 20px);
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text); font-weight: 700; font-size: clamp(13px, 1.3vw, 17px);
+}
+.node-a { left: 43%; top: 0; }
+.node-b { right: 4%; top: 22%; }
+.node-c { right: 12%; bottom: 12%; }
+.node-d { left: 12%; bottom: 12%; }
+.node-e { left: 4%; top: 22%; }
+.node-f { left: 42%; bottom: 0; }
+
+/* === DECISION GRID === */
+.decision-grid {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(10px, 1.4vw, 18px); width: min(1000px, 100%);
+  margin-top: clamp(24px, 4vh, 40px);
+}
+.decision-card {
+  min-height: clamp(150px, 25vh, 230px);
+  background: linear-gradient(180deg, rgba(19,23,32,0.96), rgba(26,31,46,0.8));
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: clamp(16px, 2vw, 24px); display: flex; flex-direction: column; justify-content: space-between;
+}
+.decision-card b { color: var(--accent-blue); font-size: clamp(17px, 1.7vw, 23px); }
+.decision-card span { color: var(--text-muted); font-size: clamp(13px, 1.2vw, 16px); line-height: 1.45; }
+
+/* === ROUTING BOARD === */
+.routing-board {
+  width: min(980px, 100%); margin-top: clamp(24px, 4vh, 36px);
+  display: grid; grid-template-columns: 0.75fr 1fr 0.9fr; gap: clamp(16px, 2.5vw, 32px); align-items: center;
+}
+.route-input, .route-outputs div, .route-policy {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  padding: clamp(18px, 2vw, 26px); box-shadow: 0 18px 48px rgba(0,0,0,0.25);
+}
+.route-input { color: var(--accent-green); font-weight: 800; text-align: center; font-size: clamp(18px, 2vw, 26px); }
+.route-policy { display: grid; gap: clamp(10px, 1.2vh, 14px); border-color: rgba(88,166,255,0.35); }
+.route-policy span {
+  padding: clamp(10px, 1vw, 14px); background: rgba(88,166,255,0.06);
+  border-left: 3px solid var(--accent-blue); color: var(--text); font-size: clamp(13px, 1.2vw, 16px);
+}
+.route-outputs { display: grid; gap: clamp(10px, 1.2vh, 14px); }
+.route-outputs div { color: var(--text-muted); font-weight: 700; text-align: center; }
+
+/* === SOFTWARE FACTORY === */
+.factory-line {
+  display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center; gap: clamp(8px, 1.2vw, 14px); width: min(1050px, 100%);
+  margin-top: clamp(22px, 4vh, 36px);
+}
+.factory-step {
+  min-height: clamp(96px, 16vh, 140px); display: grid; place-items: center;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  font-weight: 900; font-size: clamp(17px, 1.7vw, 24px);
+}
+.factory-step.validate { border-color: rgba(63,185,80,0.45); color: var(--accent-green); box-shadow: 0 0 36px rgba(63,185,80,0.08); }
+.factory-arrow {
+  color: var(--text-dim); font-size: clamp(10px, 1vw, 13px); font-family: var(--font-mono);
+  writing-mode: horizontal-tb; text-align: center;
+}
+.validator-pair {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2vw, 24px);
+  width: min(820px, 100%); margin-top: clamp(20px, 4vh, 32px);
+}
+.validator-pair div {
+  background: rgba(63,185,80,0.05); border: 1px solid rgba(63,185,80,0.22); border-radius: 8px;
+  padding: clamp(16px, 2vw, 22px);
+}
+.validator-pair b { color: var(--accent-green); display: block; margin-bottom: clamp(6px, 1vh, 10px); font-size: clamp(15px, 1.4vw, 19px); }
+.validator-pair span { color: var(--text-muted); font-size: clamp(13px, 1.15vw, 16px); line-height: 1.45; }
+
+/* === PLATFORM STACK === */
+.platform-stack {
+  width: min(860px, 100%); display: grid; gap: clamp(9px, 1.2vh, 14px);
+  margin-top: clamp(20px, 3vh, 32px);
+}
+.platform-layer {
+  padding: clamp(13px, 1.6vw, 20px); text-align: center; font-weight: 800;
+  color: var(--text); background: rgba(19,23,32,0.9); border: 1px solid var(--border);
+  border-radius: 8px; font-size: clamp(13px, 1.25vw, 17px);
+}
+.layer-app { border-color: rgba(88,166,255,0.45); color: var(--accent-blue); }
+.layer-base { border-color: rgba(240,136,62,0.38); color: var(--accent-orange); }
+
+/* === CONTEXT MAP === */
+.context-map {
+  width: min(920px, 100%); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 18px); margin-top: clamp(20px, 3vh, 30px); margin-bottom: clamp(18px, 3vh, 28px);
+}
+.context-map div {
+  min-height: clamp(76px, 12vh, 110px); display: grid; place-items: center; text-align: center;
+  padding: clamp(12px, 1.5vw, 18px); background: var(--bg-card);
+  border: 1px solid rgba(163,113,247,0.22); border-radius: 8px;
+  color: var(--text); font-weight: 700; font-size: clamp(13px, 1.25vw, 17px);
+}
+
+/* === LOOP DIAGRAM === */
+.loop-diagram { width: min(1040px, 100%); margin-top: clamp(24px, 4vh, 40px); display: grid; gap: clamp(20px, 3vh, 32px); }
+.loop-row {
+  display: grid; grid-template-columns: 1.1fr repeat(5, 1fr); gap: clamp(8px, 1vw, 12px); align-items: center;
+}
+.loop-row.outer { grid-template-columns: 1.1fr repeat(4, 1fr); width: 82%; margin-inline: auto; }
+.loop-row span {
+  color: var(--text-muted); font-size: clamp(13px, 1.1vw, 16px); font-family: var(--font-mono);
+}
+.loop-row b {
+  min-height: clamp(70px, 12vh, 110px); display: grid; place-items: center;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text); font-size: clamp(13px, 1.2vw, 17px);
+}
+.loop-row.outer b { border-color: rgba(88,166,255,0.35); color: var(--accent-blue); }
+
+/* === RESPONSIVE HEIGHT RULES === */
+@media (max-width: 760px) {
+  .decision-grid { grid-template-columns: 1fr; }
+  .decision-card { min-height: auto; gap: 10px; }
+  .routing-board { grid-template-columns: 1fr; }
+  .factory-line { grid-template-columns: 1fr; }
+  .factory-arrow { display: none; }
+  .validator-pair, .context-map, .use-case-grid { grid-template-columns: 1fr; }
+  .loop-row, .loop-row.outer { grid-template-columns: 1fr 1fr; width: 100%; }
+  .loop-row span { grid-column: 1 / -1; text-align: center; }
+  .systems-ring { width: 100%; height: min(42vh, 360px); }
+}
+@media (max-height: 700px) {
+  .slide { padding: clamp(22px, 3vw, 42px); }
+  .stats-row, .arch-flow, .vs-container, .auth-compare { margin-top: clamp(16px, 2vh, 24px); }
+  .stat-card { padding: clamp(18px, 2vw, 24px); }
+  .stat-number { font-size: clamp(42px, 6vw, 64px); }
+  .decision-card { min-height: clamp(120px, 22vh, 170px); }
+}
+@media (max-height: 600px) {
+  h1 { font-size: clamp(32px, 4.5vw, 54px); }
+  h2 { font-size: clamp(25px, 3vw, 40px); }
+  .subtitle { font-size: clamp(14px, 1.4vw, 18px); }
+  .arch-detail, .nav-hints { display: none; }
+  .systems-ring { height: min(40vh, 300px); }
+}
+@media (max-height: 500px) {
+  .slide-counter, .branding, .slide-nav { display: none; }
+  .card-desc, .validator-pair span, .decision-card span { display: none; }
+  .stat-desc { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+
+
+  
+
+/* === COMMUNITY DECK OVERRIDES === */
+/* ===== THEME: Obsidian (dark-interactive) ===== */
+:root {
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --bg: #0b0e14;
+  --bg-card: #131720;
+  --bg-card-hover: #1a1f2e;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-dim: #6e7681;
+  --accent-blue: #58a6ff;
+  --accent-green: #3fb950;
+  --accent-orange: #f0883e;
+  --accent-red: #f85149;
+  --accent-purple: #a371f7;
+  --accent-yellow: #d29922;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.18);
+}
+.deck::before {
+  content: ''; position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 85%, rgba(88, 166, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(163, 113, 247, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(63, 185, 80, 0.04) 0%, transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+.deck::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 6px 6px; pointer-events: none; z-index: 0;
+}
+.glow-blob { background: none !important; animation: driftOrb 30s ease-in-out infinite !important; }
+.glow-blue { background: radial-gradient(circle, rgba(88, 166, 255, 0.2) 0%, transparent 70%) !important; }
+.glow-purple { background: radial-gradient(circle, rgba(163, 113, 247, 0.15) 0%, transparent 70%) !important; animation-duration: 25s !important; animation-direction: reverse !important; }
+.glow-green { background: radial-gradient(circle, rgba(63, 185, 80, 0.12) 0%, transparent 70%) !important; animation-duration: 35s !important; }
+.slide.active .anim-1 { animation: blurFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both !important; }
+.slide.active .anim-2 { animation: blurFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both !important; }
+.slide.active .anim-3 { animation: blurFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both !important; }
+.slide.active .anim-4 { animation: blurFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both !important; }
+.slide.active .anim-5 { animation: blurFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both !important; }
+.slide.active .bounce-1 { animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both !important; }
+.slide.active .bounce-2 { animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both !important; }
+.slide.active .bounce-3 { animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both !important; }
+.slide.active .bounce-4 { animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both !important; }
+.slide.active .pop-1 { animation: countPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both !important; }
+.slide.active .pop-2 { animation: countPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both !important; }
+.slide.active .pop-3 { animation: countPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both !important; }
+
+/* ===== SHARED COMPONENT CSS ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: var(--font-body); background: var(--bg); color: var(--text); overflow: hidden; -webkit-font-smoothing: antialiased; }
+.deck { position: relative; width: 100vw; height: 100vh; }
+.slide { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 36px 48px; opacity: 0; pointer-events: none; transition: opacity 0.45s cubic-bezier(.4,0,.2,1); overflow: hidden; }
+.slide.active { opacity: 1; pointer-events: auto; }
+.particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.particle { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: rgba(255,255,255,0.12); animation: floatP linear infinite; }
+@keyframes floatP { 0% { transform: translateY(100vh) translateX(0); opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { transform: translateY(-10vh) translateX(25px); opacity: 0; } }
+.branding { position: fixed; top: 24px; right: 32px; z-index: 100; font-size: 13px; font-weight: 600; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+.branding-icon { width: 20px; height: 20px; border: 2px solid var(--text-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; }
+.progress-bar { position: fixed; bottom: 0; left: 0; height: 3px; z-index: 100; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green)); transition: width 0.4s ease; }
+.slide-counter { position: fixed; bottom: 20px; right: 32px; font-size: 13px; font-weight: 500; color: var(--text-dim); z-index: 100; font-variant-numeric: tabular-nums; }
+.nav-hints { position: fixed; bottom: 20px; left: 32px; font-size: 12px; color: var(--text-dim); z-index: 100; }
+.nav-hints kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 22px; padding: 0 6px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 4px; font-size: 11px; margin: 0 2px; }
+.slide-nav { position: fixed; right: 16px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 6px; }
+.slide-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); cursor: pointer; transition: all 0.3s ease; }
+.slide-nav-dot.active { background: var(--accent-blue); transform: scale(1.6); box-shadow: 0 0 8px var(--accent-blue); }
+.slide-nav-dot:hover { background: rgba(255,255,255,0.4); transform: scale(1.3); }
+.slide-tag { font-size: clamp(13px, 1.2vw, 15px); font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 16px; }
+h1 { font-size: clamp(36px,5vw,64px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; text-align: center; }
+h2 { font-size: clamp(28px,3.5vw,48px); font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 12px; text-align: center; }
+.subtitle { font-size: clamp(17px, 1.8vw, 24px); color: var(--text-muted); font-weight: 400; line-height: 1.5; text-align: center; max-width: 800px; }
+.highlight-orange { color: var(--accent-orange); } .highlight-blue { color: var(--accent-blue); } .highlight-green { color: var(--accent-green); } .highlight-purple { color: var(--accent-purple); } .highlight-red { color: var(--accent-red); } .highlight-yellow { color: var(--accent-yellow); }
+.gradient-text { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.rainbow-text { background: linear-gradient(90deg, #58a6ff, #a371f7, #3fb950, #d29922, #f0883e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.rainbow-line { width: 200px; height: 2px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green), var(--accent-yellow), var(--accent-orange)); border-radius: 2px; margin: 20px 0; }
+.mt-16 { margin-top: 16px; } .mt-24 { margin-top: 24px; }
+.glow-blob { position: absolute; width: 400px; height: 400px; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+@keyframes bounceIn { 0% { opacity:0; transform: scale(0.3) translateY(40px); } 50% { opacity:1; transform: scale(1.05) translateY(-8px); } 70% { transform: scale(0.95) translateY(4px); } 100% { opacity:1; transform: scale(1) translateY(0); } }
+@keyframes bounceInSoft { 0% { opacity:0; transform: translateY(30px); } 60% { opacity:1; transform: translateY(-6px); } 80% { transform: translateY(3px); } 100% { opacity:1; transform: translateY(0); } }
+@keyframes slideInLeft { from { opacity:0; transform:translateX(-50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes slideInRight { from { opacity:0; transform:translateX(50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 rgba(88,166,255,0); } 50% { box-shadow: 0 0 20px rgba(88,166,255,0.15); } }
+@keyframes countPop { 0% { opacity:0; transform: scale(0.5); } 60% { transform: scale(1.1); } 100% { opacity:1; transform: scale(1); } }
+@keyframes floatBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes blurFadeIn { from { opacity: 0; filter: blur(8px); transform: translateY(20px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+@keyframes driftOrb { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(15px, -20px); } 50% { transform: translate(-10px, -35px); } 75% { transform: translate(-20px, -15px); } }
+.slide.active .anim-1 { animation: fadeInUp 0.5s ease 0.1s both; }
+.slide.active .anim-2 { animation: fadeInUp 0.5s ease 0.25s both; }
+.slide.active .anim-3 { animation: bounceInSoft 0.6s ease 0.35s both; }
+.slide.active .anim-4 { animation: fadeInUp 0.5s ease 0.55s both; }
+.slide.active .anim-5 { animation: fadeInUp 0.5s ease 0.7s both; }
+.slide.active .bounce-1 { animation: bounceIn 0.7s ease 0.2s both; }
+.slide.active .bounce-2 { animation: bounceIn 0.7s ease 0.35s both; }
+.slide.active .bounce-3 { animation: bounceIn 0.7s ease 0.5s both; }
+.slide.active .bounce-4 { animation: bounceIn 0.7s ease 0.65s both; }
+.slide.active .slide-l { animation: slideInLeft 0.6s ease 0.3s both; }
+.slide.active .slide-r { animation: slideInRight 0.6s ease 0.3s both; }
+.slide.active .pop-1 { animation: countPop 0.6s ease 0.3s both; }
+.slide.active .pop-2 { animation: countPop 0.6s ease 0.45s both; }
+.slide.active .pop-3 { animation: countPop 0.6s ease 0.6s both; }
+.slide.active .stag-1 { animation: bounceInSoft 0.5s ease 0.15s both; }
+.slide.active .stag-2 { animation: bounceInSoft 0.5s ease 0.25s both; }
+.slide.active .stag-3 { animation: bounceInSoft 0.5s ease 0.35s both; }
+.slide.active .stag-4 { animation: bounceInSoft 0.5s ease 0.45s both; }
+.slide.active .stag-5 { animation: bounceInSoft 0.5s ease 0.55s both; }
+
+/* Flip cards */
+.flip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 920px; margin-top: 24px; }
+.flip-bounce-wrap { perspective: 1200px; }
+.flip-card { height: 190px; cursor: pointer; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
+.flip-card.flipped { transform: rotateY(180deg); }
+.flip-card:hover .flip-front { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.flip-front, .flip-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; border: 1.5px solid var(--border); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.flip-front { background: var(--bg-card); justify-content: center; }
+.flip-front .flip-hint { position: absolute; bottom: 10px; right: 14px; font-size: 11px; color: var(--text-dim); opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; }
+.flip-back { background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover)); transform: rotateY(180deg); justify-content: center; align-items: center; text-align: center; }
+.flip-back .flip-detail { font-size: clamp(13px, 1.2vw, 15px); color: var(--text-muted); line-height: 1.55; }
+.flip-back .flip-detail strong { color: var(--text); }
+.flip-back .flip-icon-big { font-size: 32px; margin-bottom: 10px; }
+.flip-front.border-orange { border-color: rgba(240,136,62,0.35); } .flip-front.border-yellow { border-color: rgba(210,153,34,0.35); } .flip-front.border-red { border-color: rgba(248,81,73,0.35); } .flip-front.border-blue { border-color: rgba(88,166,255,0.35); } .flip-front.border-green { border-color: rgba(63,185,80,0.35); } .flip-front.border-purple { border-color: rgba(163,113,247,0.35); }
+.flip-title { font-size: clamp(16px, 1.4vw, 19px); font-weight: 700; margin-bottom: 4px; }
+.flip-subtitle { font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; }
+.flip-icon { font-size: 26px; margin-bottom: 8px; }
+
+/* Architecture flow */
+.arch-flow { display: flex; align-items: center; gap: 16px; width: 100%; max-width: 1000px; margin-top: 28px; }
+.arch-box { flex: 1; min-width: 0; background: var(--bg-card); border: 1.5px solid var(--border); border-radius: 14px; padding: 24px 14px; text-align: center; transition: all 0.35s cubic-bezier(.4,0,.2,1); cursor: pointer; }
+.arch-box:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.4); border-color: var(--border-hover); }
+.arch-box.box-blue { border-color: rgba(88,166,255,0.4); } .arch-box.box-yellow { border-color: rgba(210,153,34,0.4); } .arch-box.box-green { border-color: rgba(63,185,80,0.4); }
+.arch-icon { font-size: 34px; margin-bottom: 12px; transition: transform 0.3s ease; }
+.arch-box:hover .arch-icon { transform: scale(1.15); animation: floatBob 1.5s ease infinite; }
+.arch-label { font-size: clamp(17px, 1.6vw, 21px); font-weight: 800; }
+.arch-label.text-blue { color: var(--accent-blue); } .arch-label.text-yellow { color: var(--accent-yellow); } .arch-label.text-green { color: var(--accent-green); }
+.arch-role { font-size: clamp(13px, 1.1vw, 15px); color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+.arch-detail { font-size: clamp(11px, 0.95vw, 13px); color: var(--text-dim); margin-top: 8px; font-family: var(--font-mono); background: rgba(255,255,255,0.03); padding: 5px 8px; border-radius: 6px; }
+.arch-arrow { font-size: 13px; color: var(--text-dim); display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; min-width: 50px; }
+.arch-arrow span { font-size: clamp(10px, 0.9vw, 12px); white-space: nowrap; }
+.arrow-line { width: 34px; height: 2px; background: var(--text-dim); position: relative; }
+.arrow-line::after { content: ''; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 6px solid var(--text-dim); }
+
+/* Stats */
+.stats-row { display: flex; gap: 20px; margin-top: 28px; width: 100%; max-width: 1000px; }
+.stat-card { flex: 1; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 26px 20px; transition: all 0.35s ease; text-align: left; }
+.stat-card:hover { transform: translateY(-6px) scale(1.02); border-color: var(--border-hover); box-shadow: 0 16px 48px rgba(0,0,0,0.35); }
+.stat-number { font-size: clamp(40px,5.6vw,64px); font-weight: 900; line-height: 1; margin-bottom: 6px; }
+.stat-number.blue { color: var(--accent-blue); } .stat-number.green { color: var(--accent-green); } .stat-number.orange { color: var(--accent-orange); }
+.stat-label { font-size: clamp(14px, 1.3vw, 17px); font-weight: 700; margin-bottom: 4px; }
+.stat-desc { font-size: clamp(12px, 1.05vw, 14px); color: var(--text-muted); }
+
+/* Problem/Fix pair reuse cb- classes */
+.cb-wrap { width: 100%; max-width: 820px; text-align: left; display: flex; flex-direction: column; gap: clamp(8px, 1.5vh, 16px); }
+.cb-number { font-family: var(--font-mono); font-size: clamp(13px, 1.2vw, 16px); font-weight: 700; letter-spacing: 0.1em; color: var(--text-dim); opacity: 0.5; }
+.cb-heading { font-size: clamp(26px, 3.2vw, 44px); font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; color: var(--text); text-align: left; }
+.cb-body { font-size: clamp(14px, 1.4vw, 18px); line-height: 1.6; color: var(--text-muted); max-width: 700px; }
+.cb-body .cb-accent { font-weight: 600; color: var(--text); }
+.cb-pair { display: flex; gap: clamp(10px, 1.5vw, 20px); width: 100%; margin-top: clamp(4px, 1vh, 8px); }
+.cb-card { flex: 1; padding: clamp(14px, 2vw, 22px); background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; transition: all 0.3s ease; }
+.cb-card:hover { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.cb-card.problem { background: rgba(248, 81, 73, 0.04); border-color: rgba(248, 81, 73, 0.2); }
+.cb-card.fix { border-color: rgba(88, 166, 255, 0.25); }
+.cb-card-label { font-family: var(--font-mono); font-size: clamp(10px, 0.9vw, 12px); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: clamp(6px, 1vh, 10px); display: flex; align-items: center; gap: 0.5em; }
+.cb-card-label.problem-label { color: var(--accent-red); } .cb-card-label.fix-label { color: var(--accent-blue); }
+.cb-card-text { font-size: clamp(12px, 1.1vw, 15px); line-height: 1.55; color: var(--text-muted); }
+.cb-keyquote { font-size: clamp(22px, 2.8vw, 38px); font-weight: 700; line-height: 1.25; color: var(--text); border-left: 3px solid var(--accent-blue); padding-left: clamp(12px, 2vw, 24px); text-align: left; }
+.cb-detail { font-size: clamp(13px, 1.2vw, 17px); line-height: 1.6; color: var(--text-muted); max-width: 660px; margin-top: clamp(6px, 1vh, 12px); }
+.cb-list { list-style: none; display: flex; flex-direction: column; gap: clamp(6px, 1.2vh, 12px); margin-top: 4px; }
+.cb-list li { font-size: clamp(13px, 1.25vw, 17px); line-height: 1.5; color: var(--text-muted); padding-left: 22px; position: relative; }
+.cb-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-blue); }
+
+/* Status timeline */
+.status-timeline { width: 100%; max-width: 820px; margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.status-item { display: flex; align-items: center; gap: 16px; padding: 12px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; transition: all 0.3s ease; cursor: default; }
+.status-item:hover { transform: translateX(8px); border-color: var(--border-hover); background: var(--bg-card-hover); }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.status-dot.green { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+.status-dot.yellow { background: var(--accent-yellow); box-shadow: 0 0 8px var(--accent-yellow); }
+.status-dot.orange { background: var(--accent-orange); box-shadow: 0 0 8px var(--accent-orange); }
+.status-dot.red { background: var(--accent-red); box-shadow: 0 0 8px var(--accent-red); }
+.status-dot.blue { background: var(--accent-blue); box-shadow: 0 0 8px var(--accent-blue); }
+.status-dot.purple { background: var(--accent-purple); box-shadow: 0 0 8px var(--accent-purple); }
+.status-text { font-size: clamp(13px, 1.2vw, 16px); font-weight: 500; }
+.status-text strong { font-weight: 700; color: var(--text); }
+
+/* Table */
+.table-wrap { width: 100%; max-width: 940px; margin-top: 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: all 0.35s ease; }
+.table-wrap:hover { border-color: var(--border-hover); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: clamp(12px, 1.15vw, 15px); }
+.table-wrap thead th { padding: 12px 18px; text-align: left; font-weight: 600; font-size: clamp(11px, 1vw, 13px); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); }
+.table-wrap tbody td { padding: 10px 18px; border-bottom: 1px solid var(--border); color: var(--text); }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr { transition: background 0.2s ease; }
+.table-wrap tbody tr:hover { background: var(--bg-card-hover); }
+.table-wrap .cell-highlight { font-weight: 600; }
+.table-wrap .cell-muted { color: var(--text-muted); }
+
+/* CTA box */
+.cta-box { margin-top: 28px; padding: 24px 36px; border-radius: 16px; background: linear-gradient(135deg, rgba(88,166,255,0.06), rgba(163,113,247,0.06)); border: 1px solid rgba(88,166,255,0.15); text-align: center; max-width: 700px; transition: all 0.3s ease; }
+.cta-box:hover { border-color: rgba(88,166,255,0.3); box-shadow: 0 8px 40px rgba(88,166,255,0.06); }
+
+/* Formula box */
+.formula-box { font-family: var(--font-mono); font-size: clamp(15px, 1.6vw, 22px); color: var(--accent-green); background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 28px; margin-top: 20px; text-align: center; }
+
+/* --- viewport-base.css typography vars (position/layout omitted — conflicts with components.css .slide) --- */
+html, body { height: 100%; overflow-x: hidden; }
+:root { --title-size: clamp(1.5rem, 5vw, 4rem); --h2-size: clamp(1.25rem, 3.5vw, 2.5rem); --h3-size: clamp(1rem, 2.5vw, 1.75rem); --body-size: clamp(0.75rem, 1.5vw, 1.125rem); --small-size: clamp(0.65rem, 1vw, 0.875rem); --slide-padding: clamp(1rem, 4vw, 4rem); --content-gap: clamp(0.5rem, 2vw, 2rem); --element-gap: clamp(0.25rem, 1vw, 1rem); }
+.card, .container, .content-box { max-width: min(90vw, 1000px); max-height: min(80vh, 700px); }
+.feature-list, .bullet-list { gap: clamp(0.4rem, 1vh, 1rem); }
+.feature-list li, .bullet-list li { font-size: var(--body-size); line-height: 1.4; }
+img, .image-container { max-width: 100%; max-height: min(50vh, 400px); object-fit: contain; }
+@media (max-height: 700px) { :root { --slide-padding: clamp(0.75rem, 3vw, 2rem); --content-gap: clamp(0.4rem, 1.5vw, 1rem); --title-size: clamp(1.25rem, 4.5vw, 2.5rem); --h2-size: clamp(1rem, 3vw, 1.75rem); } }
+@media (max-height: 600px) { :root { --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem); --content-gap: clamp(0.3rem, 1vw, 0.75rem); --title-size: clamp(1.1rem, 4vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); } .nav-dots, .keyboard-hint, .decorative { display: none; } }
+@media (max-height: 500px) { :root { --slide-padding: clamp(0.4rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 1.5rem); --h2-size: clamp(0.9rem, 2.5vw, 1.25rem); --body-size: clamp(0.65rem, 1vw, 0.85rem); } }
+@media (max-width: 600px) { :root { --title-size: clamp(1.25rem, 7vw, 2.5rem); } .grid { grid-template-columns: 1fr; } .flip-grid, .cb-pair, .stats-row, .arch-flow { flex-direction: column; } .flip-grid { display: flex; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; } html { scroll-behavior: auto; } }
+
+
+/* === COMBINED DECK: FOUR-FACTOR DECISION GRID === */
+.decision-grid-four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 760px) { .decision-grid-four { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .decision-grid-four { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<div class="branding">AIE WORLD'S FAIR 2026</div>
+<div class="slide-nav" id="slideNav"></div>
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+<div class="nav-hints"><span><kbd>&larr;</kbd><kbd>&rarr;</kbd> navigate</span></div>
+
+
+<div class="deck" id="deck">
+
+<div class="slide active" data-slide="0">
+  <div class="glow-blob glow-blue" style="top:-100px;left:-100px;"></div>
+  <div class="glow-blob glow-purple" style="bottom:-120px;right:-80px;"></div>
+  <p class="slide-tag anim-1">AIE WORLD'S FAIR 2026 &middot; COMMUNITY SHARING</p>
+  <h1 class="anim-2">Notes from AI Engineer<br>World's Fair <span class="rainbow-text">2026</span></h1>
+  <p class="subtitle anim-3">Six production patterns drawn from 17 talks and workshops across four days.</p>
+  <div class="rainbow-line anim-4"></div>
+  <p class="subtitle anim-5" style="font-size:14px;margin-top:8px;">by <strong>Chang Sheng</strong> &middot; August 2026</p>
+  <script type="application/json" class="slide-notes">
+  {"title":"Title","script":"This is a synthesis of six production patterns that recurred across seventeen sessions at AI Engineer World’s Fair 2026. The throughline is that model capability is only the starting point; useful systems depend on the engineering and accountability around it.","notes":["17 talks and workshops across four days","Six production patterns, not an announcement recap","The surrounding system is the throughline"]}
+  </script>
+</div>
+
+<!-- Slide 1: Thesis -->
+
+<div class="slide" data-slide="1">
+  <p class="slide-tag anim-1">WHAT WE'LL COVER</p>
+  <h2 class="anim-2">Six production patterns <span class="highlight-blue">from 17 sessions</span></h2>
+  <div class="status-timeline anim-3">
+    <div class="status-item stag-1"><div class="status-dot blue"></div><div class="status-text"><strong>1-2.</strong> Owning inference &amp; model routing</div></div>
+    <div class="status-item stag-2"><div class="status-dot purple"></div><div class="status-text"><strong>3-4.</strong> The software factory &amp; the platform layer</div></div>
+    <div class="status-item stag-3"><div class="status-dot green"></div><div class="status-text"><strong>5.</strong> Always-on agents for operational toil</div></div>
+    <div class="status-item stag-4"><div class="status-dot orange"></div><div class="status-text"><strong>6.</strong> The engineering role moving to the outer loop</div></div>
+  </div>
+  <p class="subtitle anim-4 mt-16" style="font-size:14px;">The throughline: useful AI depends on how the system is designed, operated and reviewed.</p>
+  <script type="application/json" class="slide-notes">
+  {"title":"Agenda","script":"The six patterns form one progression. First, decide where inference runs and how model choices are routed. Next, make autonomous development trustworthy and turn repeated foundations into a platform. Then apply bounded autonomy to operational work and finish with the evidence and accountability humans must retain.","notes":["Sections one and two cover inference and routing","Sections three and four cover autonomous development and shared foundations","Sections five and six cover always-on work and accountable review"]}
+  </script>
+</div>
+
+<!-- Slide 3: Inference — when to own -->
+
+<div class="slide" data-slide="2">
+    <p class="slide-tag anim-1">1. Inference Ownership</p>
+    <h2 class="anim-2">Self-hosting is a workload decision</h2>
+    <div class="vs-container anim-3">
+      <div class="vs-card card-left slide-l">
+        <div class="vs-label-top highlight-purple">Start here</div>
+        <div class="vs-name highlight-purple">Model APIs</div>
+        <div class="vs-desc">Best for exploration, bursty demand, and frontier tasks.</div>
+        <div class="vs-badge">low ops / elastic</div>
+      </div>
+      <div class="vs-plus anim-3">vs</div>
+      <div class="vs-card card-right slide-r">
+        <div class="vs-label-top highlight-blue">Evaluate when needed</div>
+        <div class="vs-name gradient-text">Owned inference</div>
+        <div class="vs-desc">Makes sense when volume, residency, latency, workload fit, or control needs justify it.</div>
+        <div class="vs-badge">fixed cost / control</div>
+      </div>
+    </div>
+    <p class="subtitle anim-4 mt-24">The question is not "can we host a model?" It is "which workload deserves a serving system?"</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Self-hosting is a workload decision","script":"Most teams should start with model APIs. Owned inference is worth evaluating only when a specific workload has enough sustained volume, residency constraints, latency pressure, fit with a smaller model, or an exceptional control requirement to justify the operational responsibility.","notes":["Model APIs are the default for exploration, bursty demand, and frontier tasks","Evaluate owned inference against workload and control requirements","Ownership trades elasticity for fixed cost, control, and operational responsibility"]}
+  </script>
+  </div>
+
+<div class="slide" data-slide="3">
+    <p class="slide-tag anim-1">AKAMAI WORKED EXAMPLE &middot; QWEN3-4B</p>
+    <h2 class="anim-2">The crossover is <span class="highlight-orange">real, but workload-specific</span></h2>
+    <div class="anim-3" style="width:min(94vw,980px);max-height:min(55vh,470px);padding:clamp(10px,1.4vw,18px);margin-top:clamp(6px,1vh,12px);background:#f8fafc;border:1px solid rgba(255,255,255,.16);border-radius:clamp(8px,1vw,14px);overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,.3);">
+      <div style="display:flex;justify-content:center;gap:clamp(20px,4vw,52px);color:#172033;font-size:clamp(11px,1.1vw,15px);font-weight:700;margin-bottom:clamp(2px,.7vh,7px);">
+        <span><i style="display:inline-block;width:clamp(24px,3vw,42px);height:clamp(3px,.4vw,5px);background:#c43c2b;vertical-align:middle;margin-right:clamp(5px,.7vw,9px);"></i>Hosted API &middot; scales with use</span>
+        <span><i style="display:inline-block;width:clamp(24px,3vw,42px);height:clamp(3px,.4vw,5px);background:#2877a8;vertical-align:middle;margin-right:clamp(5px,.7vw,9px);"></i>Self-hosted GPU &middot; fixed capacity</span>
+      </div>
+      <svg viewBox="0 0 1000 390" role="img" aria-label="Hosted API cost rises with request volume and crosses a fixed self-hosted GPU cost around sixty to eighty thousand requests per day in this worked example" style="display:block;width:100%;max-height:min(46vh,370px);">
+        <style>
+          .axis-label{font:600 clamp(10px,1vw,14px) 'Inter',sans-serif;fill:#283548}.tick{font:500 clamp(9px,.9vw,12px) 'Inter',sans-serif;fill:#526174}.callout{font:700 clamp(11px,1.05vw,15px) 'Inter',sans-serif;fill:#743ba0}.small-note{font:600 clamp(9px,.9vw,12px) 'Inter',sans-serif;fill:#8d2d23}
+        </style>
+        <rect x="80" y="25" width="870" height="290" fill="#fff"/>
+        <g stroke="#dce2e8" stroke-width="1">
+          <line x1="80" y1="315" x2="950" y2="315"/><line x1="80" y1="250" x2="950" y2="250"/><line x1="80" y1="185" x2="950" y2="185"/><line x1="80" y1="120" x2="950" y2="120"/><line x1="80" y1="55" x2="950" y2="55"/>
+        </g>
+        <rect x="287" y="25" width="70" height="290" fill="#a371f7" opacity=".12"/>
+        <path d="M80 315 L950 48 L950 94 L80 315 Z" fill="#e68175" opacity=".25"/>
+        <line x1="80" y1="315" x2="950" y2="72" stroke="#c43c2b" stroke-width="5"/>
+        <line x1="80" y1="244" x2="950" y2="244" stroke="#2877a8" stroke-width="5"/>
+        <g stroke="#172033" stroke-width="2"><line x1="80" y1="25" x2="80" y2="315"/><line x1="80" y1="315" x2="950" y2="315"/></g>
+        <g class="tick" text-anchor="middle"><text x="80" y="338">0</text><text x="254" y="338">50</text><text x="428" y="338">100</text><text x="602" y="338">150</text><text x="776" y="338">200</text><text x="950" y="338">250</text></g>
+        <g class="tick" text-anchor="end"><text x="68" y="319">$0</text><text x="68" y="254">$1k</text><text x="68" y="189">$2k</text><text x="68" y="124">$3k</text><text x="68" y="59">$4k</text></g>
+        <text class="axis-label" x="515" y="372" text-anchor="middle">Requests per day &middot; thousands</text>
+        <text class="axis-label" x="18" y="175" text-anchor="middle" transform="rotate(-90 18 175)">Monthly cost &middot; USD</text>
+        <text class="callout" x="410" y="105">Crossover zone: ~60&ndash;80k requests/day</text>
+        <path d="M485 120 L335 225" fill="none" stroke="#743ba0" stroke-width="3"/><path d="M335 225 l10 -2 l-4 -9" fill="none" stroke="#743ba0" stroke-width="3"/>
+        <circle cx="776" cy="120" r="6" fill="#9d3025"/><circle cx="776" cy="164" r="6" fill="#9d3025"/>
+        <text class="small-note" x="655" y="38">At 200k/day: roughly $2.7k&ndash;$3.6k hosted</text>
+      </svg>
+    </div>
+    <p class="subtitle anim-4" style="font-size:clamp(11px,1.02vw,14px);margin-top:clamp(6px,1.1vh,10px);"><strong style="color:var(--text);">Cost is one trigger &mdash; not the whole decision.</strong> The threshold moves with model, workload, utilisation, resilience and operating cost.</p>
+    <p class="anim-4" style="font-size:clamp(9px,.78vw,11px);color:var(--text-muted);margin-top:clamp(3px,.6vh,6px);">Workshop assumptions: Qwen3-4B &middot; 500 input / 300 output tokens per request &middot; RTX 4000 Ada at ~$1.50/hour. Hosted band reflects provider pricing.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Akamai Qwen3-4B worked example","script":"This worked example assumes Qwen3-4B, five hundred input and three hundred output tokens per request, and an RTX 4000 Ada at roughly one dollar fifty per hour. Under those assumptions the fixed self-hosted cost is about eleven hundred dollars per month and the crossover is around sixty to eighty thousand requests per day. The hosted band reflects provider pricing. This is an example calculation, not a reusable threshold.","notes":["State the workload and hardware assumptions on the slide","Explain that the hosted range reflects provider pricing","Cost is only one trigger for evaluating ownership"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="4">
+    <p class="slide-tag anim-1">FROM EXAMPLE TO FRAMEWORK</p>
+    <h2 class="anim-2">Generalising into a decision model</h2>
+    <div class="decision-grid decision-grid-four anim-3">
+      <div class="decision-card"><b>Volume</b><span>Is demand high, predictable, and sustained?</span></div>
+      <div class="decision-card"><b>Residency</b><span>Can the data leave its current environment?</span></div>
+      <div class="decision-card"><b>Latency</b><span>Does local or dedicated serving materially change user experience?</span></div>
+      <div class="decision-card"><b>Fit</b><span>Can a smaller or open model satisfy the task quality bar?</span></div>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"Generalising into a decision model","script":"The chart answers one economic scenario, but the reusable decision needs four tests. Look at sustained volume, residency constraints, latency needs, and whether the workload fits a smaller or open model. Cost matters, but it does not decide the architecture alone.","notes":["Volume: demand should be high, predictable, and sustained","Residency and latency can justify ownership independently of cost","Workload fit determines whether owned inference is technically sensible"]}
+  </script>
+  </div>
+
+<div class="slide" data-slide="5">
+    <p class="slide-tag anim-1">JULY 2026 &middot; HUGGING FACE SECURITY INCIDENT</p>
+    <h2 class="anim-2">Sometimes control matters <span class="highlight-red">regardless of cost</span></h2>
+    <div class="cb-wrap anim-3" style="max-width:min(92vw,960px);">
+      <p class="cb-detail" style="max-width:100%;margin:0 auto;text-align:center;">Hugging Face had to analyse more than <strong style="color:var(--text);">17,000 attacker events</strong>. Commercial API guardrails blocked the forensic workload, so the team ran an open-weight model on its own infrastructure.</p>
+      <div class="cb-pair">
+        <div class="cb-card problem" style="border-color:rgba(248,81,73,.38);">
+          <div class="cb-card-label problem-label">01 &middot; Guardrail lockout</div>
+          <div class="cb-card-text"><strong style="color:var(--text);">Exploit payloads looked like malicious requests.</strong><br>Hosted safety filters refused real attack commands, attacker infrastructure, and credential strings needed for live forensic analysis.</div>
+        </div>
+        <div class="cb-card fix" style="border-color:rgba(63,185,80,.38);">
+          <div class="cb-card-label" style="color:var(--accent-green);">02 &middot; Data sovereignty</div>
+          <div class="cb-card-text"><strong style="color:var(--text);">Sensitive incident data stayed inside the perimeter.</strong><br>Running GLM-5.2 locally kept attacker data and referenced credentials from leaving Hugging Face's environment.</div>
+        </div>
+      </div>
+      <p class="cb-detail" style="max-width:100%;text-align:center;margin-top:clamp(5px,1vh,10px);">The issue was not safety controls themselves; it was the team&rsquo;s inability to tune them for an exceptional defensive workload. Vet a capable local model <em>before</em> an incident.</p>
+      <p style="text-align:center;font-size:clamp(10px,.9vw,12px);"><a href="https://huggingface.co/blog/security-incident-july-2026" target="_blank" rel="noopener" style="color:var(--accent-blue);">Source: Hugging Face security incident disclosure, 16 July 2026</a></p>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"When control matters regardless of cost","script":"The Hugging Face incident shows an exceptional control requirement. Commercial safety controls refused the raw attack commands, attacker infrastructure, and credentials required for defensive forensic analysis. The problem was not that safety controls existed; it was that the security team could not tune them for this unusual workload. Running GLM-5.2 locally restored control over that policy boundary and kept sensitive incident data inside the environment.","notes":["Frame this as control over the policy boundary, not removal of safety","Replace unexplained C2 terminology","The case can justify ownership independently of monetary cost"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="6">
+    <p class="slide-tag anim-1">INFERENCE OPERATIONS</p>
+    <h2 class="anim-2">Owning inference means owning performance, reliability, and governance</h2>
+    <div class="table-wrap anim-3" style="margin-top:clamp(14px,2vh,22px);">
+      <table style="font-size:clamp(11px,1.05vw,15px);">
+        <thead><tr><th>Responsibility</th><th>Question the team must answer</th></tr></thead>
+        <tbody>
+          <tr><td class="cell-highlight">Capacity</td><td>What happens at peak concurrency, long context, and exhaustion?</td></tr>
+          <tr><td class="cell-highlight">Performance</td><td>Are latency, throughput, utilisation, and cost measured on the real workload?</td></tr>
+          <tr><td class="cell-highlight">Reliability</td><td>How do overload, node failure, server crashes, upgrades, and fallback behave?</td></tr>
+          <tr><td class="cell-highlight">Governance</td><td>Where do prompts, outputs, logs, credentials, and model artifacts live?</td></tr>
+          <tr><td class="cell-highlight">Quality</td><td>How are model, engine, serving, and quantisation changes evaluated?</td></tr>
+          <tr><td class="cell-highlight">Operations</td><td>Who monitors, patches, responds to incidents, manages capacity, and retires models?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="subtitle anim-4 mt-16" style="font-size:clamp(11px,1.05vw,14px);">Self-hosting provides greater control, but your team becomes responsible for capacity, efficiency, resilience, security, model lifecycle, and quality.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Owning inference means owning performance, reliability, and governance","script":"Self-hosting provides greater control, but the team assumes responsibility for the full production lifecycle: capacity, efficiency, resilience, security, model lifecycle, and quality. That includes measuring real-workload performance, monitoring and patching the service, responding to incidents, managing capacity, evaluating serving changes, and retiring models. Ownership creates control by making these responsibilities explicit; it does not automatically guarantee lower cost, privacy, or security.","notes":["Emphasise that inference operations are important, non-trivial engineering work","Keep Operations as a separate responsibility","Make utilisation and real-workload measurement explicit"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="7">
+    <p class="slide-tag anim-1">PORTFOLIO STRATEGY</p>
+    <h2 class="anim-2">The answer is usually a portfolio</h2>
+    <p class="subtitle anim-2" style="font-size:clamp(13px,1.25vw,17px);">Applications call one governed access layer and select the deployment that fits their workload.</p>
+    <div class="anim-3" style="display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,18px);width:100%;max-width:1160px;margin-top:clamp(18px,3vh,30px);">
+      <div class="arch-box box-blue" style="max-width:clamp(180px,18vw,230px);">
+        <div class="arch-label text-blue">Applications</div>
+        <div class="arch-role">one stable interface</div>
+        <div class="arch-detail">products, agents, internal workflows</div>
+      </div>
+      <div class="arch-arrow"><span>call</span><div class="arrow-line"></div></div>
+      <div class="arch-box box-yellow" style="max-width:clamp(200px,20vw,260px);">
+        <div class="arch-label text-yellow">Gateway</div>
+        <div class="arch-role">governed access</div>
+        <div class="arch-detail">policy, telemetry, fallback, cost attribution</div>
+      </div>
+      <div class="arch-arrow"><span>offers</span><div class="arrow-line"></div></div>
+      <div style="display:grid;gap:clamp(10px,1.4vh,16px);flex:1;max-width:clamp(280px,30vw,390px);">
+        <div class="arch-box box-blue" style="padding:clamp(14px,1.7vw,21px);">
+          <div class="arch-label text-blue">Hosted APIs</div>
+          <div class="arch-role">exploration, bursts, frontier capability</div>
+        </div>
+        <div class="arch-box box-green" style="padding:clamp(14px,1.7vw,21px);">
+          <div class="arch-label text-green">Dedicated / self-hosted</div>
+          <div class="arch-role">stable workloads with compelling volume, sovereignty, availability, fit, or control needs</div>
+        </div>
+      </div>
+    </div>
+    <p class="subtitle anim-4 mt-24" style="font-size:clamp(12px,1.1vw,15px);">Once both destinations exist, deployment choice becomes an application policy rather than a one-time infrastructure decision.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"The answer is usually a portfolio","script":"The architecture is a branch, not a chain. Applications call a common gateway, which provides governed access to hosted APIs and dedicated or self-hosted inference. The gateway applies policy and telemetry, attributes cost, and can support fallback, but the application selects which available deployment fits its workload. Hosted APIs remain useful for exploration, bursts, and frontier capability. Dedicated serving fits stable workloads with compelling volume, sovereignty, availability, fit, or control requirements. This portfolio preserves application choice; the next slide introduces model routing as a separate capability that can automate model selection per request.","notes":["The gateway exposes governed deployment options; it does not choose the workload fit","Applications select between hosted and dedicated inference","Keep gateway access distinct from the model-routing capability introduced next"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="8">
+    <p class="slide-tag anim-1">2. Model Routing</p>
+    <h2 class="anim-2">Routing decides which model should handle each request</h2>
+    <p class="subtitle anim-2" style="font-size:clamp(13px,1.25vw,17px);margin-top:clamp(5px,1vh,10px);">It turns workload requirements and current system state into a model choice.</p>
+    <div class="routing-board anim-3" style="margin-top:clamp(12px,2vh,20px);">
+      <div class="route-input">User request</div>
+      <div class="route-policy">
+        <span>Quality &amp; capability</span>
+        <span>Latency budget</span>
+        <span>Policy constraints</span>
+        <span>Cost &amp; cache state</span>
+      </div>
+      <div class="route-outputs">
+        <div>Small model</div>
+        <div>Frontier model</div>
+        
+      </div>
+    </div>
+    <p class="subtitle anim-4 mt-24">The best route is the cheapest option that still satisfies the workload &mdash; not simply the cheapest model.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Routing decides which model should handle each request","script":"Once a portfolio offers several viable models, every request needs a route. Routing turns workload requirements and current system state into a model choice. The compact policy view combines the decision into four inputs: required quality and capability, latency budget, policy constraints, and total cost together with cache state. It then selects the model that best satisfies those requirements, illustrated here as a small model or a frontier model. The goal is the cheapest option that still satisfies the workload, not simply the cheapest model.","notes":["Define routing before discussing cost optimisation","Connect directly to the model portfolio on slide ten","Keep the right-hand side limited to model choices"]}
+  </script>
+  </div>
+
+<div class="slide" data-slide="9">
+  <div class="glow-blob glow-purple" style="top:20%;left:50%;"></div>
+  <div class="cb-wrap">
+    <span class="cb-number anim-1">02</span>
+    <h2 class="cb-heading anim-2">Model routing is a <span class="highlight-purple">product decision</span>, not a cost switch</h2>
+    <div class="cb-pair">
+      <div class="cb-card problem bounce-1">
+        <div class="cb-card-label problem-label">&#x26A0; The naive version</div>
+        <p class="cb-card-text">"Send simple prompts to the cheap model." Sounds obvious &mdash; but without task-specific evaluation and quality thresholds, a cheap answer that silently changes an important outcome isn't a saving.</p>
+      </div>
+      <div class="cb-card fix bounce-2">
+        <div class="cb-card-label fix-label">&#x2713; The catch that matters</div>
+        <p class="cb-card-text">Switching models mid-session can <span class="cb-cmd">invalidate a warm cached prefix</span>. A cache read costs roughly a tenth of an uncached one &mdash; routing and context have to be designed together.</p>
+      </div>
+    </div>
+    <p class="anim-4" style="margin-top:clamp(8px,1.2vh,12px);font-size:clamp(9px,.78vw,11px);color:var(--text-muted);"><a href="https://www.notdiamond.ai/blog/a-comprehensive-guide-to-model-routing" target="_blank" rel="noopener" style="color:var(--accent-blue);">Further reading: Not Diamond, “A Comprehensive Guide to Model Routing”</a></p>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Model routing is a product decision","script":"Two traps erase the apparent savings from routing. First, sending supposedly simple work to a cheap model without task-specific evaluation can silently change important outcomes. Second, switching models can invalidate a warm cached prefix, so the cheaper model can make the full request more expensive. Routing and context need to be designed together. The slide links to Not Diamond's comprehensive guide for a broader treatment of model-routing approaches and trade-offs.","notes":["Naive cheap-model routing needs task-specific evaluation and quality thresholds","A model switch can discard a reusable cached prefix","Further reading: Not Diamond, A Comprehensive Guide to Model Routing"]}
+  </script>
+</div>
+
+<!-- Slide 7: Routing resilience -->
+
+<div class="slide" data-slide="10">
+    <p class="slide-tag anim-1">PRODUCTION LLM GATEWAYS</p>
+    <h2 class="anim-2">A gateway is where four things <span class="highlight-red">fight</span></h2>
+    <p class="subtitle anim-2" style="font-size:clamp(13px,1.3vw,17px);">Availability, latency, guardrails and cost. Every safeguard buys you one and charges you another.</p>
+    <div class="anim-3" style="display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(16px,3vw,42px);align-items:center;width:min(94vw,1040px);margin-top:clamp(12px,2vh,22px);">
+      <div style="display:grid;grid-template-columns:1fr clamp(74px,9vw,118px) 1fr;grid-template-rows:auto clamp(74px,9vw,118px) auto;align-items:center;justify-items:center;gap:clamp(7px,1.2vw,14px);position:relative;">
+        <div style="grid-column:2;grid-row:1;width:100%;padding:clamp(8px,1vw,12px);text-align:center;background:var(--bg-card);border:1px solid rgba(63,185,80,.45);border-radius:8px;"><strong style="font-size:clamp(13px,1.25vw,17px);">Availability</strong><br><span style="font-size:clamp(10px,.9vw,12px);color:var(--text-muted);">fallbacks</span></div>
+        <div style="grid-column:1;grid-row:2;width:100%;padding:clamp(8px,1vw,12px);text-align:center;background:var(--bg-card);border:1px solid rgba(88,166,255,.45);border-radius:8px;"><strong style="font-size:clamp(13px,1.25vw,17px);">Latency</strong><br><span style="font-size:clamp(10px,.9vw,12px);color:var(--text-muted);">timeouts</span></div>
+        <div style="grid-column:2;grid-row:2;width:100%;height:100%;display:grid;place-items:center;text-align:center;border-radius:50%;background:radial-gradient(circle,rgba(248,81,73,.34),rgba(19,23,32,.96));border:1px solid rgba(248,81,73,.7);box-shadow:0 0 32px rgba(248,81,73,.12);"><div><strong style="font-size:clamp(13px,1.25vw,17px);">Gateway</strong><span style="display:block;font-size:clamp(9px,.8vw,11px);color:var(--text-muted);">critical path</span></div></div>
+        <div style="grid-column:3;grid-row:2;width:100%;padding:clamp(8px,1vw,12px);text-align:center;background:var(--bg-card);border:1px solid rgba(163,113,247,.45);border-radius:8px;"><strong style="font-size:clamp(13px,1.25vw,17px);">Guardrails</strong><br><span style="font-size:clamp(10px,.9vw,12px);color:var(--text-muted);">input, output</span></div>
+        <div style="grid-column:2;grid-row:3;width:100%;padding:clamp(8px,1vw,12px);text-align:center;background:var(--bg-card);border:1px solid rgba(240,136,62,.45);border-radius:8px;"><strong style="font-size:clamp(13px,1.25vw,17px);">Cost</strong><br><span style="font-size:clamp(10px,.9vw,12px);color:var(--text-muted);">limits</span></div>
+        <div style="position:absolute;left:50%;top:12%;bottom:12%;width:1px;background:rgba(255,255,255,.18);z-index:-1;"></div>
+        <div style="position:absolute;top:50%;left:12%;right:12%;height:1px;background:rgba(255,255,255,.18);z-index:-1;"></div>
+      </div>
+      <div class="cb-wrap" style="gap:clamp(8px,1.2vh,12px);">
+        <div class="cb-card" style="border-color:rgba(88,166,255,.3);padding:clamp(14px,1.7vw,20px);">
+          <div class="cb-card-label" style="color:var(--accent-blue);">IF YOU USE A GATEWAY</div>
+          <div class="cb-card-text" style="font-size:clamp(13px,1.2vw,16px);">Know which axis your use case can trade away.</div>
+        </div>
+        <div class="cb-card" style="border-color:rgba(163,113,247,.3);padding:clamp(14px,1.7vw,20px);">
+          <div class="cb-card-label" style="color:var(--accent-purple);">IF YOU DESIGN A GATEWAY</div>
+          <div class="cb-card-text" style="font-size:clamp(13px,1.2vw,16px);">Provide the levers so each caller can choose.</div>
+        </div>
+      </div>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"A gateway is where four things fight","script":"The speaker framed a gateway as the critical path where availability, latency, guardrails, and cost compete. Every safeguard improves one axis and charges another, so no gateway can maximise all four. A gateway user needs to know which axis a workload can trade away. A gateway designer needs to expose the levers so each caller can make that choice deliberately.","notes":["Availability, latency, guardrails, and cost cannot all be maximised","Gateway users choose which axis their workload can trade away","Gateway designers expose route-level levers instead of imposing one global tradeoff"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="11">
+    <p class="slide-tag anim-1">TWO CONCRETE TRADE-OFFS</p>
+    <h2 class="anim-2">Every safeguard <span class="highlight-orange">charges another axis</span></h2>
+    <div class="cb-pair anim-3" style="width:min(94vw,1060px);margin-top:clamp(12px,2vh,22px);align-items:stretch;">
+      <div class="cb-card" style="border-color:rgba(63,185,80,.35);padding:clamp(14px,1.8vw,22px);">
+        <div class="cb-card-label" style="color:var(--accent-green);">AVAILABILITY <span style="color:var(--text-dim);">&harr;</span> COST</div>
+        <div class="status-timeline" style="margin-top:clamp(7px,1vh,11px);gap:clamp(5px,.8vh,8px);">
+          <div class="status-item" style="padding:clamp(7px,.9vw,10px);"><div class="status-dot green"></div><div class="status-text"><strong>Sequential fallback</strong> &mdash; pay for secondary calls only after failure.</div></div>
+          <div class="status-item" style="padding:clamp(7px,.9vw,10px);"><div class="status-dot yellow"></div><div class="status-text"><strong>Parallel fallback</strong> &mdash; faster and more available; pay for duplicates.</div></div>
+          <div class="status-item" style="padding:clamp(7px,.9vw,10px);"><div class="status-dot orange"></div><div class="status-text"><strong>Reserved capacity</strong> &mdash; sustained failover; pay for idle headroom.</div></div>
+        </div>
+        <p class="cb-detail" style="margin-top:clamp(8px,1.2vh,12px);"><strong style="color:var(--text);">Eject, don't retry:</strong> remove the failed primary instead of repeatedly paying for doomed attempts.</p>
+      </div>
+      <div class="cb-card" style="border-color:rgba(163,113,247,.35);padding:clamp(14px,1.8vw,22px);">
+        <div class="cb-card-label" style="color:var(--accent-purple);">GUARDRAILS <span style="color:var(--text-dim);">&harr;</span> LATENCY</div>
+        <div class="status-timeline" style="margin-top:clamp(7px,1vh,11px);gap:clamp(5px,.8vh,8px);">
+          <div class="status-item" style="padding:clamp(7px,.9vw,10px);"><div class="status-dot red"></div><div class="status-text"><strong>Pre-hook</strong> &mdash; required when unsafe input must not reach the model; adds serial latency.</div></div>
+          <div class="status-item" style="padding:clamp(7px,.9vw,10px);"><div class="status-dot green"></div><div class="status-text"><strong>In parallel</strong> &mdash; run beside the model and withhold output until it passes.</div></div>
+          <div class="status-item" style="padding:clamp(7px,.9vw,10px);"><div class="status-dot purple"></div><div class="status-text"><strong>Post-hook</strong> &mdash; inspects output; adds serial response latency.</div></div>
+        </div>
+        <p class="cb-detail" style="margin-top:clamp(8px,1.2vh,12px);"><strong style="color:var(--text);">Bound the dependency:</strong> give every guardrail a hard time budget and fallback.</p>
+      </div>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"Every safeguard charges another axis","script":"Two examples make the four-axis framing concrete. Availability can be bought with sequential fallback, parallel calls, or reserved capacity, each with a different cost. Guardrail placement determines latency. A pre-hook is necessary when unsafe input must not reach the model. Checks that can run alongside generation may withhold the response until they pass, avoiding serial latency. The right placement and fallback behavior are route-specific.","notes":["Use guardrails rather than the broader label security","Parallel checks are not appropriate for every input policy","Fallback design and guardrail placement expose explicit trade-offs"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="12">
+    <p class="slide-tag anim-1">FROM THE TRENCHES</p>
+    <h2 class="anim-2">Four ways a gateway can <span class="highlight-red">fail quietly</span></h2>
+    <div class="use-case-grid anim-3" style="width:min(94vw,1040px);margin-top:clamp(12px,2vh,22px);gap:clamp(10px,1.4vw,16px);">
+      <div class="cb-card" style="border-color:rgba(210,153,34,.34);padding:clamp(12px,1.6vw,19px);">
+        <div class="cb-card-label" style="color:var(--accent-yellow);">01 &middot; PROVIDER FALLBACK</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);line-height:1.45;color:var(--text-muted);"><strong style="color:var(--accent-red);">WHAT BREAKS</strong> &mdash; Schemas and limits change; the secondary may lack sustained capacity.</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);line-height:1.45;color:var(--text-muted);margin-top:clamp(6px,.8vh,9px);"><strong style="color:var(--accent-blue);">DESIGN RESPONSE</strong> &mdash; Normalize providers and capacity-plan the failover path.</div>
+      </div>
+      <div class="cb-card" style="border-color:rgba(240,136,62,.34);padding:clamp(12px,1.6vw,19px);">
+        <div class="cb-card-label" style="color:var(--accent-orange);">02 &middot; STREAMING</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);line-height:1.45;color:var(--text-muted);"><strong style="color:var(--accent-red);">WHAT BREAKS</strong> &mdash; After the first token, retry, fallback, and response replacement are gone.</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);line-height:1.45;color:var(--text-muted);margin-top:clamp(6px,.8vh,9px);"><strong style="color:var(--accent-blue);">DESIGN RESPONSE</strong> &mdash; Stream only where perceived latency justifies losing recovery.</div>
+      </div>
+      <div class="cb-card" style="border-color:rgba(248,81,73,.34);padding:clamp(12px,1.6vw,19px);">
+        <div class="cb-card-label" style="color:var(--accent-red);">03 &middot; BLENDED LATENCY</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);line-height:1.45;color:var(--text-muted);"><strong style="color:var(--accent-red);">WHAT BREAKS</strong> &mdash; One gateway-wide p99 hides workload-specific outages.</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);line-height:1.45;color:var(--text-muted);margin-top:clamp(6px,.8vh,9px);"><strong style="color:var(--accent-blue);">DESIGN RESPONSE</strong> &mdash; Measure latencies and errors per model and route.</div>
+      </div>
+      <div class="cb-card" style="border-color:rgba(163,113,247,.34);padding:clamp(12px,1.6vw,19px);">
+        <div class="cb-card-label" style="color:var(--accent-purple);">04 &middot; GUARDRAIL FAILURE</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);line-height:1.45;color:var(--text-muted);"><strong style="color:var(--accent-red);">WHAT BREAKS</strong> &mdash; The safety check becomes a latency and availability dependency.</div>
+        <div style="font-size:clamp(12px,1.1vw,15px);line-height:1.45;color:var(--text-muted);margin-top:clamp(6px,.8vh,9px);"><strong style="color:var(--accent-blue);">DESIGN RESPONSE</strong> &mdash; Set a time budget and choose fail-open or fail-closed per policy.</div>
+      </div>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"Four ways a gateway can fail quietly","script":"These four failures are dangerous because the gateway can still appear healthy. A fallback can change the response contract or collapse under sustained load. Streaming can remove every recovery lever. A blended p99 can hide that one workload is effectively down. A guardrail can become a latency or availability dependency. Each failure needs an explicit design response rather than another global gateway default.","notes":["Normalize providers and capacity-plan failover","Stream selectively and measure latency per model and route","Time-bound guardrails and choose failure behavior per policy"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="13">
+    <p class="slide-tag anim-1">GATEWAY DESIGN</p>
+    <h2 class="anim-2">Separate local resilience from <span class="highlight-blue">central governance</span></h2>
+    <div class="cb-wrap anim-3">
+      <div class="cb-pair">
+        <div class="cb-card fix accent-green">
+          <div class="cb-card-label fix-label">Decentralize</div>
+          <div class="cb-card-text">Timeouts, retries, fallback behavior, and workload-specific user experience where the product context is known.</div>
+        </div>
+        <div class="cb-card fix accent-purple">
+          <div class="cb-card-label fix-label">Centralize</div>
+          <div class="cb-card-text">Governance, auditability, usage attribution, policy signals, shared telemetry, and provider abstraction.</div>
+        </div>
+      </div>
+      <p class="cb-detail">The gateway should centralize governance without owning every product-level recovery decision.</p>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"Separate local resilience from central governance","script":"This is a gateway-design boundary, not a model-routing decision. The shared gateway should centralize governance, auditability, usage attribution, policy signals, telemetry, and provider abstraction. Applications and local product paths should retain the recovery behavior that depends on user experience and workload context, including timeouts, retries, and fallback behavior. Centralizing access does not require the gateway to own every product-level recovery decision.","notes":["Frame this explicitly as gateway design","Local product paths own workload-specific and user-visible recovery","The gateway centralizes governance and evidence without absorbing every resilience decision"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="14">
+  <div class="glow-blob glow-green" style="top:-10%;right:-10%;"></div>
+  <div class="cb-wrap anim-3">
+    <span class="cb-number anim-1">03</span>
+    <h2 class="cb-heading anim-2">What is a <span class="highlight-green">software factory</span>?</h2>
+    <blockquote class="cb-keyquote anim-3">The whole autonomous development cycle &mdash; spec, build, validate, deploy, learn. Not a coding chatbot. Not a swarm of agents on a shared task.</blockquote>
+    <p class="cb-detail anim-4">Tereza Tížková (Factory) anchors it in three properties: <span class="cb-accent">agnostic</span> (not locked to one model), <span class="cb-accent">autonomous</span>, and <span class="cb-accent">always-improving</span>. <strong style="color:var(--text);">Autonomy is not unrestricted deployment.</strong> People still set priorities, permissions and release boundaries.<br><br>Her electrification analogy: bolting a motor onto a steam-era factory layout barely helps &mdash; the gains came from redesigning the whole factory around electricity.</p>
+    <p class="anim-4" style="margin-top:clamp(8px,1.2vh,12px);font-size:clamp(9px,.78vw,11px);color:var(--text-muted);"><a href="https://www.terezatizkova.com/blog/rise-of-the-software-factory" target="_blank" rel="noopener" style="color:var(--accent-blue);">Source: Tereza Tížková, “Rise of the Software Factory”</a></p>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Software factory definition","script":"Factory defines a software factory as the whole autonomous development cycle—specification, build, validation, deployment, and learning—not a coding chatbot or a parallel swarm. That original definition remains the anchor. The added qualification is that autonomy is not unrestricted deployment: people still set priorities, permissions, validation requirements, and release boundaries. The electrification analogy says the process must be redesigned around the new capability rather than bolting agents onto the old workflow. The slide cites Tereza Tížková's illustrated write-up of her AI Engineer World's Fair talk.","notes":["Retain the talk’s original definition verbatim on the slide","Clarify the human-set boundaries below the definition","Source: Tereza Tížková, Rise of the Software Factory"]}
+  </script>
+</div>
+
+<!-- Slide 9: Factory architecture stats -->
+
+<div class="slide" data-slide="15">
+    <p class="slide-tag anim-1">THE TRUST MODEL</p>
+    <h2 class="anim-2">Three properties make the factory <span class="highlight-green">trustworthy</span></h2>
+    <div class="stats-row anim-3" style="width:min(94vw,1060px);align-items:stretch;">
+      <div class="stat-card pop-1" style="border-color:rgba(88,166,255,.34);">
+        <div style="font-family:var(--font-mono);font-size:clamp(11px,1vw,13px);color:var(--accent-blue);letter-spacing:.12em;margin-bottom:clamp(8px,1.2vh,12px);">01 &middot; AGNOSTIC</div>
+        <div class="stat-label" style="font-size:clamp(18px,1.8vw,24px);">Avoid lock-in</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.1vw,15px);line-height:1.5;">Work with different models and tools. Run the same agent in the cloud, locally, in CI, or in the IDE.</div>
+      </div>
+      <div class="stat-card pop-2" style="border-color:rgba(240,136,62,.34);">
+        <div style="font-family:var(--font-mono);font-size:clamp(11px,1vw,13px);color:var(--accent-orange);letter-spacing:.12em;margin-bottom:clamp(8px,1.2vh,12px);">02 &middot; AUTONOMOUS</div>
+        <div class="stat-label" style="font-size:clamp(18px,1.8vw,24px);">Make judgment independent</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.1vw,15px);line-height:1.5;">A validation contract defines done. Sequential workers hand off fresh context; validators judge work they did not generate.</div>
+      </div>
+      <div class="stat-card pop-3" style="border-color:rgba(63,185,80,.34);">
+        <div style="font-family:var(--font-mono);font-size:clamp(11px,1vw,13px);color:var(--accent-green);letter-spacing:.12em;margin-bottom:clamp(8px,1.2vh,12px);">03 &middot; ALWAYS-IMPROVING</div>
+        <div class="stat-label" style="font-size:clamp(18px,1.8vw,24px);">Learn through the environment</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.1vw,15px);line-height:1.5;">Carry context and encode conventions in documentation, hooks, plugins, and agent-ready repositories instead of reteaching them every session.</div>
+      </div>
+    </div>
+    <p class="subtitle anim-4 mt-24" style="font-size:clamp(12px,1.1vw,15px);"><strong style="color:var(--text);">Sequential handoffs and validation-first belong under autonomy.</strong> The next slide opens up the autonomous architecture: planning, sequential implementation and independent judgment.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Three properties make the factory trustworthy","script":"The talk names three properties. Agnostic means the factory is portable across models, tools, and execution surfaces. Autonomous means it can run a long mission with explicit entry conditions, exits, sequential implementation, and independent judgment. Always-improving means the environment carries context and encodes conventions instead of reteaching them every session. The revised subtitle now leads directly into the three-role autonomous architecture.","notes":["Retain the original three cards and their explanations","Place this framework immediately after the definition","Use the revised subtitle to transition into the architecture"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="16">
+    <p class="slide-tag anim-1">AUTONOMOUS ARCHITECTURE</p>
+    <h2 class="anim-2">Separate planning, implementation and judgment</h2>
+    <p class="subtitle anim-2" style="font-size:clamp(13px,1.25vw,17px);"><strong style="color:var(--text);">Before work begins:</strong> a validation contract defines what &ldquo;done&rdquo; means.</p>
+    <div class="stats-row anim-3" style="width:min(94vw,1080px);align-items:stretch;margin-top:clamp(14px,2.2vh,22px);">
+      <div class="stat-card pop-1" style="text-align:left;border-color:rgba(88,166,255,.36);padding:clamp(15px,1.8vw,22px);">
+        <div class="stat-label" style="color:var(--accent-blue);">01 &middot; Orchestrator</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:750;margin:clamp(6px,.8vh,9px) 0;">Plans the mission</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.08vw,15px);line-height:1.5;">Decomposes work and manages entry conditions, exits and the validation contract.</div>
+      </div>
+      <div class="stat-card pop-2" style="text-align:left;border-color:rgba(240,136,62,.36);padding:clamp(15px,1.8vw,22px);">
+        <div class="stat-label" style="color:var(--accent-orange);">02 &middot; Sequential workers</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:750;margin:clamp(6px,.8vh,9px) 0;">Implement with fresh context</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.08vw,15px);line-height:1.5;">Each worker completes a scoped step and hands off cleanly; contained subtasks may still run in parallel.</div>
+      </div>
+      <div class="stat-card pop-3" style="text-align:left;border-color:rgba(63,185,80,.36);padding:clamp(15px,1.8vw,22px);">
+        <div class="stat-label" style="color:var(--accent-green);">03 &middot; Independent validators</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:750;margin:clamp(6px,.8vh,9px) 0;">Judge work they did not create</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.08vw,15px);line-height:1.5;"><strong>Scrutiny</strong> reads code and runs checks. <strong>User testing</strong> drives the running app as a black box.</div>
+      </div>
+    </div>
+    <div class="formula-box anim-4" style="margin-top:clamp(14px,2.2vh,22px);font-size:clamp(12px,1.15vw,16px);padding:clamp(10px,1.3vw,15px);">Deploy &rarr; production evidence and lessons &rarr; improve the next specification and environment</div>
+    <script type="application/json" class="slide-notes">
+{"title":"Separate planning, implementation and judgment","script":"Factory's autonomous architecture has three roles bound by a validation contract written before implementation. The orchestrator plans and manages the mission. Workers implement in sequence so each receives fresh context, although a worker can still use parallel subagents for contained subtasks. Validators judge work they did not generate: Scrutiny examines code and runs checks, while User Testing drives the application without reading source. Deployment produces evidence and lessons that improve the next specification and environment.","notes":["Restore the orchestrator missing from the original slide","Show that sequential applies to worker handoffs, not every contained subtask","Represent learning as feedback around the cycle rather than a step before deployment"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="17">
+    <p class="slide-tag anim-1">WHAT MAKES IT WORK</p>
+    <h2 class="anim-2">Sequential workers, <span class="highlight-blue">quantified in production</span></h2>
+    <div class="stats-row">
+      <div class="stat-card pop-1">
+        <div class="stat-number blue">16.5<span style="font-size:0.45em;">hrs</span></div>
+        <div class="stat-label">One Factory Mission</div>
+        <div class="stat-desc">185 agent runs, 63 workers, 27 validators</div>
+      </div>
+      <div class="stat-card pop-2">
+        <div class="stat-number orange">~40<span style="font-size:0.45em;">%</span></div>
+        <div class="stat-label">Time spent validating</div>
+        <div class="stat-desc">Caught a migration that was a dead, non-interactive dummy</div>
+      </div>
+      <div class="stat-card pop-3">
+        <div class="stat-number green">63<span style="font-size:0.45em;">:27</span></div>
+        <div class="stat-label">Worker : validator ratio</div>
+        <div class="stat-desc">Workers run in sequence, not a parallel swarm</div>
+      </div>
+    </div>
+    <p class="subtitle anim-4 mt-24" style="font-size:clamp(12px,1.1vw,15px);">A production example from one customer Mission, Factory&rsquo;s product for long-running autonomous software work.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Sequential workers, quantified in production","script":"These figures come from a real customer Mission run using Factory's autonomous software-development product, not from a general industry benchmark. Two architectural choices cut against the obvious instinct to parallelise everything: sequential worker handoffs instead of a swarm, and validation structurally separated from generation. In this Mission, Factory ran 185 agent sessions over sixteen and a half hours with sixty-three workers and twenty-seven validators. Validation consumed roughly forty percent of the process, and it caught a migration that looked complete in code but was a dead, non-interactive dummy when exercised.","notes":["Define Mission as Factory's product for long-running autonomous software work","One customer Mission used 185 agent runs, 63 workers, and 27 validators","Treat this as a production example, not a controlled comparison or general benchmark"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="18">
+    <p class="slide-tag anim-1">Why Structure Matters</p>
+    <h2 class="anim-2">Basic repo structure reduces AI-related code degradation</h2>
+    <div class="table-wrap anim-3 compact-table">
+      <table>
+        <thead><tr><th>Increase after AI adoption<br><span style="font-size:.72em;font-weight:500;">Lower is better</span></th><th>Level 1<br><span style="font-size:.72em;font-weight:500;">No linting, AGENTS.md or hooks</span></th><th>Level 2+<br><span style="font-size:.72em;font-weight:500;">Basic structure</span></th></tr></thead>
+        <tbody>
+          <tr><td class="cell-highlight">Cognitive complexity</td><td>+96%</td><td class="cell-muted">+29%</td></tr>
+          <tr><td class="cell-highlight">Static-analysis warnings</td><td>+45%</td><td class="cell-muted">+13%</td></tr>
+          <tr><td class="cell-highlight">Duplicated line density</td><td>+122%</td><td class="cell-muted">+34%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="subtitle anim-4 mt-24">All three metrics still worsened—but basic structure limited the increase to roughly one-third.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Basic repo structure reduces AI-related code degradation","script":"These percentages are increases in undesirable code-quality metrics after AI adoption, not success rates. Lower is better. Level 1 repositories had no linting configuration, AGENTS.md, or pre-commit hooks. Level 2 and above had at least that basic structure. Quality still worsened in both groups, but the increases in structured repositories were only about one-third as large. This distinction sets up the broader agent-readiness framework on the next slide.","notes":["Percentages show increases after AI adoption; lower is better","Level 1 has no linting, AGENTS.md, or pre-commit hooks","Use the comparison to introduce the broader agent-readiness framework"]}
+  </script>
+  </div>
+
+<div class="slide" data-slide="19">
+    <p class="slide-tag anim-1">Agent-Ready Repositories</p>
+    <h2 class="anim-2">The environment predicts agent reliability</h2>
+    <div class="stats-row anim-3">
+      <div class="stat-card pop-1">
+        <div class="stat-number orange">3-4x</div>
+        <div class="stat-label">less degradation</div>
+        <div class="stat-desc">Repos with basic structure degraded far less after AI adoption.</div>
+      </div>
+      <div class="stat-card pop-2">
+        <div class="stat-number blue">8</div>
+        <div class="stat-label">readiness axes</div>
+        <div class="stat-desc">Style, tests, docs, build, environment, observability, security, discovery.</div>
+      </div>
+      <div class="stat-card pop-3">
+        <div class="stat-number green" style="font-size:clamp(32px,4vw,58px);">Level 2+</div>
+        <div class="stat-label">structure baseline</div>
+        <div class="stat-desc">Linting, AGENTS.md and pre-commit hooks establish the minimum agent-ready baseline.</div>
+      </div>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"The environment predicts agent reliability","script":"The Level 1 versus Level 2 measurements show why repository structure matters. The broader practical lesson is that agent reliability depends heavily on the environment the agent enters. A Level 2 or better baseline gives it explicit conventions and fast feedback through linting, AGENTS.md, and pre-commit hooks, while full readiness spans eight axes beyond structure alone.","notes":["Connect back to the Level 1 versus Level 2 evidence","Start with a Level 2+ repository baseline","Readiness spans eight axes, not model quality alone"]}
+  </script>
+  </div>
+
+<div class="slide" data-slide="20">
+    <p class="slide-tag anim-1">04 &mdash; BEYOND ONE TEAM &middot; UBER CASE STUDY</p>
+    <h2 class="anim-2">Shared building blocks turn isolated agents into an <span class="highlight-blue">engineering platform</span></h2>
+    <div class="anim-3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1vw,14px);width:100%;max-width:1120px;margin-top:clamp(14px,2.5vh,24px);">
+      <div class="stat-card pop-1" style="padding:clamp(12px,1.7vw,20px);"><div class="stat-label">Model gateway</div><div class="stat-desc">Governed access to any model</div></div>
+      <div class="stat-card pop-1" style="padding:clamp(12px,1.7vw,20px);"><div class="stat-label">MCP gateway</div><div class="stat-desc">Authenticated discovery and execution of tools</div></div>
+      <div class="stat-card pop-2" style="padding:clamp(12px,1.7vw,20px);"><div class="stat-label">DevPods</div><div class="stat-desc">Warm, isolated code workspaces for agents</div></div>
+      <div class="stat-card pop-2" style="padding:clamp(12px,1.7vw,20px);"><div class="stat-label">Agent skills</div><div class="stat-desc">Portable, eval-gated domain expertise</div></div>
+      <div class="stat-card pop-3" style="padding:clamp(12px,1.7vw,20px);"><div class="stat-label">Context graph</div><div class="stat-desc">Pre-mapped relationships across organisational systems</div></div>
+      <div class="stat-card pop-3" style="padding:clamp(12px,1.7vw,20px);"><div class="stat-label">AI assistant</div><div class="stat-desc">Zero-setup entry point for engineers</div></div>
+    </div>
+    <p class="subtitle anim-4 mt-24" style="font-size:clamp(12px,1.1vw,15px);"><strong style="color:var(--text);">Centralise the foundations;</strong> let teams compose workflows across the lifecycle—from idea and build to validation and maintenance.</p>
+    <p class="anim-4" style="margin-top:clamp(5px,.8vh,8px);font-size:clamp(9px,.72vw,11px);color:var(--text-muted);letter-spacing:.02em;">Source: Uber, “Agentic SDLC at Uber: Building Blocks for Uber’s Software Factory,” AI Engineer World’s Fair 2026.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Shared building blocks enable the engineering lifecycle","script":"Uber's visual logic was not a chain from gateways to workspaces to a context graph. These are parallel building blocks that teams combine across the engineering lifecycle. The model gateway governs model access. The MCP gateway discovers and executes tools. DevPods provide warm, isolated workspaces. Skills package portable, evaluated expertise. The context graph exposes relationships the organisation already knows. Uber's agenda described the AI assistant as the zero-setup entry point, although its detailed slide was not captured. Together these shared foundations let teams compose workflows from idea and build through validation and maintenance.","notes":["The six components are parallel platform building blocks, not a linear pipeline","Idea, Build, Validation, and Maintenance are Uber's original lifecycle labels and now appear in the subtitle","The dedicated AI Assistant slide was not captured, so its description stays at the agenda level"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="21">
+    <p class="slide-tag anim-1">UBER CASE STUDY &middot; WHY THESE FOUNDATIONS EXIST</p>
+    <h2 class="anim-2">Each building block removed a <span class="highlight-blue">repeated engineering cost</span></h2>
+    <div class="table-wrap anim-3" style="margin-top:clamp(16px,2.5vh,26px);">
+      <table style="font-size:clamp(11px,1.08vw,15px);">
+        <thead><tr><th>Problem at Uber</th><th>Implemented response</th><th>What the talk showed</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Fragmented model and tool access</td>
+            <td class="cell-highlight">Model + MCP gateways</td>
+            <td>Shared identity, PII controls, policy, audit and cost attribution; one path to discover and execute 1P and 3P tools</td>
+          </tr>
+          <tr>
+            <td>Teams recreated expertise; agents rediscovered known relationships</td>
+            <td class="cell-highlight">Agent Skills + Context Graph</td>
+            <td>2,500+ skills and 20,000+ runs/day; one question took 8 calls with the graph versus 94 without it</td>
+          </tr>
+          <tr>
+            <td>Agent environments took minutes to prepare and varied across stacks</td>
+            <td class="cell-highlight">Warm, pre-indexed DevPods</td>
+            <td>14,000+ DevPods at peak, with startup measured in seconds</td>
+          </tr>
+          <tr>
+            <td>Agent activity needed proof before reaching a human</td>
+            <td class="cell-highlight">Quality gates + validation evidence</td>
+            <td>14 lint checks, a 120-point eval and model gate; checks, screenshots and review results attached to PRs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="subtitle anim-4 mt-16" style="font-size:clamp(12px,1.12vw,15px);">The platform was not an abstract target architecture—it consolidated costs already being paid repeatedly across teams.</p>
+    <p class="anim-4" style="margin-top:clamp(5px,.8vh,8px);font-size:clamp(9px,.72vw,11px);color:var(--text-muted);letter-spacing:.02em;">Source: Uber, “Agentic SDLC at Uber: Building Blocks for Uber’s Software Factory,” AI Engineer World’s Fair 2026.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Why Uber built the shared foundations","script":"The six boxes become easier to understand when tied to the repeated costs they remove. The model and MCP gateways consolidate identity, policy, privacy controls, audit, cost attribution, and tool access. Skills stop teams rebuilding the same expertise, while the context graph stops agents rediscovering relationships the organisation already knows. Warm DevPods remove minutes of setup and environment inconsistency. Finally, quality gates, traces, checks, and screenshots provide evidence before agent work reaches a human. These were implemented responses to operating problems at Uber, not merely a reference architecture.","notes":["Governed model and MCP access belongs in the same problem-to-response comparison","Use the production figures to make Skills, Context Graph, and DevPods concrete","Validation evidence explains how the platform earns trust rather than merely generating activity"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="22">
+    <p class="slide-tag anim-1">THE PAVED ROAD &middot; REPORT SYNTHESIS</p>
+    <h2 class="anim-2">Build the paved road around <span class="highlight-purple">shared bottlenecks</span></h2>
+    <p class="subtitle anim-2" style="font-size:clamp(13px,1.25vw,17px);">Turn problems that many teams repeatedly solve into safe platform defaults.</p>
+    <div class="table-wrap anim-3" style="margin-top:clamp(16px,2.5vh,26px);">
+      <table>
+        <thead><tr><th>Recurring team problem</th><th>Platform default</th></tr></thead>
+        <tbody>
+          <tr><td>Fragmented model and tool access</td><td class="cell-highlight">Governed model and MCP gateways</td></tr>
+          <tr><td>Repeated expertise and context discovery</td><td class="cell-highlight">Shared skills and context services</td></tr>
+          <tr><td>Unsafe or inconsistent execution</td><td class="cell-highlight">Isolated, reproducible workspaces</td></tr>
+          <tr><td>No proof that behaviour is improving</td><td class="cell-highlight">Evaluation, tracing and evidence</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="subtitle anim-4 mt-16" style="font-size:clamp(12px,1.15vw,16px);"><strong style="color:var(--text);">Do not build everything at once.</strong> Start with the shared problem teams already solve repeatedly.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"Build the paved road around shared bottlenecks","script":"The reusable lesson is not to copy Uber's entire platform on day one. Inventory what teams are already rebuilding: model and tool access, skills and context discovery, sandbox setup, tracing, and evaluation. Choose one repeated bottleneck with clear users and turn it into a safe default. A paved road succeeds when the sound engineering choice is also the easiest one.","notes":["This slide generalises the Uber case study into a decision model","Look for duplication across teams before choosing the first platform investment","Start with one shared bottleneck rather than a complete platform programme"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="23">
+    <div class="glow-blob glow-orange" style="top:-10%;right:-10%;"></div>
+    <div class="cb-wrap anim-3">
+      <span class="cb-number anim-1">05</span>
+      <h2 class="cb-heading anim-2">Always-on agents change <span class="highlight-orange">operational work</span> first</h2>
+      <p class="cb-body anim-3">Justin Smith (Resolve AI) calls it <span class="cb-accent">invisible toil</span>: watching a deploy, writing the morning incident digest, or re-investigating p99 drift. On-call has a page and incidents have a bridge; invisible toil has neither.</p>
+    </div>
+    <div class="formula-box anim-4">Operational task = execution &times; production context</div>
+    <div class="anim-4" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.4vw,18px);width:100%;max-width:1080px;margin-top:clamp(10px,1.6vh,16px);">
+      <div class="stat-card" style="padding:clamp(12px,1.5vw,18px);text-align:left;">
+        <div class="stat-label" style="color:var(--accent-orange);">Production context</div>
+        <div class="stat-desc">Recent deploys, telemetry, ownership, dependencies, runbooks and past incidents</div>
+      </div>
+      <div class="stat-card" style="padding:clamp(12px,1.5vw,18px);text-align:left;">
+        <div class="stat-label" style="color:var(--accent-blue);">Always-on agent</div>
+        <div class="stat-desc">Wakes on a schedule, event or message; retains state, investigates with tools and surfaces evidence</div>
+      </div>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"Always-on agents and invisible toil","script":"Invisible toil is recurring operational work with no ticket, pager, sprint slot, or consistent owner. The execution itself is usually small. The expensive part is rebuilding production context: recent deploys, telemetry, ownership, dependencies, runbooks, past incidents, and the boundaries of safe action. An always-on agent differs from a scheduled script because it can wake from multiple triggers, retain durable state, investigate with tools, and present evidence or an escalation rather than only emit a fixed notification.","notes":["Production context is environment knowledge, not merely chat history","Trigger modes include schedule, event stream, and direct message","The useful output is evidence or escalation, not unrestricted production action"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="24">
+    <p class="slide-tag anim-1">PROOF AT SCALE &middot; OPENROUTER</p>
+    <h2 class="anim-2"><span class="highlight-green">Narrow roles</span> made autonomy scale</h2>
+    <div class="anim-3" style="display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,42px);width:100%;max-width:1040px;margin-top:clamp(12px,2vh,20px);padding:clamp(10px,1.4vw,16px);background:var(--bg-card);border:1px solid var(--border);border-radius:clamp(10px,1vw,14px);">
+      <div style="text-align:center;"><strong style="font-size:clamp(25px,3vw,40px);color:var(--accent-blue);">73</strong><span style="margin-left:clamp(5px,.6vw,8px);font-size:clamp(12px,1.1vw,15px);color:var(--text-muted);">named interns</span></div>
+      <div style="width:1px;height:clamp(28px,4vh,44px);background:var(--border);"></div>
+      <div style="text-align:center;"><strong style="font-size:clamp(25px,3vw,40px);color:var(--accent-orange);">31,512</strong><span style="margin-left:clamp(5px,.6vw,8px);font-size:clamp(12px,1.1vw,15px);color:var(--text-muted);">sessions / 30 days</span></div>
+      <div style="width:1px;height:clamp(28px,4vh,44px);background:var(--border);"></div>
+      <div style="text-align:center;"><strong style="font-size:clamp(25px,3vw,40px);color:var(--accent-green);">84%</strong><span style="margin-left:clamp(5px,.6vw,8px);font-size:clamp(12px,1.1vw,15px);color:var(--text-muted);">autonomous sessions</span></div>
+    </div>
+    <div class="stats-row anim-3" style="margin-top:clamp(12px,2vh,20px);gap:clamp(10px,1.4vw,18px);">
+      <div class="stat-card pop-1" style="padding:clamp(14px,1.8vw,22px);text-align:left;">
+        <div class="stat-label" style="font-family:var(--font-mono);color:var(--accent-blue);">buddy</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:700;margin-top:clamp(4px,.7vh,7px);">Model-launch operator</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.05vw,15px);line-height:1.45;">Updates configuration, runs validation and manages launch state.</div>
+      </div>
+      <div class="stat-card pop-2" style="padding:clamp(14px,1.8vw,22px);text-align:left;">
+        <div class="stat-label" style="font-family:var(--font-mono);color:var(--accent-orange);">Shakespeare</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:700;margin-top:clamp(4px,.7vh,7px);">Content editor</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.05vw,15px);line-height:1.45;">Edits posts, checks claims and maintains a consistent voice.</div>
+      </div>
+      <div class="stat-card pop-3" style="padding:clamp(14px,1.8vw,22px);text-align:left;">
+        <div class="stat-label" style="font-family:var(--font-mono);color:var(--accent-green);">eavesdropper</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:700;margin-top:clamp(4px,.7vh,7px);">Meeting memory</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.05vw,15px);line-height:1.45;">Transcribes meetings and records decisions, actions and owners.</div>
+      </div>
+    </div>
+    <div class="formula-box anim-4" style="margin-top:clamp(12px,2vh,20px);font-size:clamp(13px,1.25vw,17px);padding:clamp(10px,1.3vw,15px);"><strong>Autonomy scales through narrow scope:</strong> one job, durable state and automatic triggers—with human approval for consequential actions.</div>
+    <script type="application/json" class="slide-notes">
+{"title":"Interns at scale","script":"OpenRouter applied the same pattern to internal business and engineering work. Each intern has one well-defined job, versioned configuration in Git, durable state in its own VM, and a Slack presence. Eighty-four percent of sessions were initiated and executed without human prompting, but that should not be read as unrestricted production authority: sensitive deployment paths still used human approval and an isolated privileged process. The transferable lesson is that autonomy scales through narrow scope and bounded consequences.","notes":["Concrete examples make the intern model legible","Autopilot describes session initiation and execution, not permission to bypass consequential approval","Resolve AI and OpenRouter converge on narrow jobs, persistent context, automatic triggers, and human gates"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="25">
+    <p class="slide-tag anim-1">STARTER WORKLOADS</p>
+    <h2 class="anim-2">What makes a good <span class="highlight-yellow">pilot</span></h2>
+    <div class="formula-box anim-3" style="font-size:clamp(12px,1.15vw,16px);padding:clamp(10px,1.3vw,16px);">Clear trigger &middot; narrow scope &middot; read-only first &middot; verifiable evidence &middot; explicit escalation</div>
+    <div class="status-timeline anim-3" style="margin-top:clamp(14px,2vh,22px);">
+      <div class="status-item stag-1"><div class="status-dot green"></div><div class="status-text">Deployment monitoring triggered by a deploy event</div></div>
+      <div class="status-item stag-2"><div class="status-dot blue"></div><div class="status-text">Scheduled health and anomaly checks</div></div>
+      <div class="status-item stag-3"><div class="status-dot purple"></div><div class="status-text">Recurring operational reports and handoffs</div></div>
+      <div class="status-item stag-4"><div class="status-dot yellow"></div><div class="status-text">First response to known questions, with an escalation path</div></div>
+    </div>
+    <p class="subtitle anim-4 mt-16" style="font-size:clamp(12px,1.1vw,15px);"><strong style="color:var(--text);">The agent brings evidence;</strong> a human renders the verdict.</p>
+    <script type="application/json" class="slide-notes">
+{"title":"What makes a good pilot","script":"A good pilot is defined less by the use case name than by its operating boundaries. Give it a clear trigger and one narrow responsibility. Start read-only, define the evidence an engineer must receive, and make escalation explicit. Deployment monitoring, scheduled health checks, recurring reports, and first response to known questions all create value even when the agent cannot make a production change.","notes":["Choose a recurring task with no clear owner","Read-only work can prove value while surfacing identity, memory, audit, and context requirements","Human verification remains the gate for consequential action"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="26">
+    <p class="slide-tag anim-1">06 &mdash; THE ROLE SHIFT</p>
+    <h2 class="anim-2">The engineering role moves to the <span class="highlight-blue">outer loop</span></h2>
+    <p class="subtitle anim-2" style="font-size:clamp(13px,1.25vw,17px);">Agents do the work and return evidence. Engineers decide what earns production trust.</p>
+    <div class="arch-flow anim-3">
+      <div class="arch-box box-blue bounce-1">
+        <div class="arch-icon">&#129302;</div>
+        <div class="arch-label text-blue">Agent inner loop</div>
+        <div class="arch-role">Investigate &rarr; implement &rarr; test &rarr; report</div>
+        <div class="arch-detail">capability: do work</div>
+      </div>
+      <div class="arch-arrow anim-3"><span>returns</span><div class="arrow-line"></div></div>
+      <div class="arch-box box-yellow bounce-2">
+        <div class="arch-icon">&#128203;</div>
+        <div class="arch-label text-yellow">Evidence boundary</div>
+        <div class="arch-role">Diffs, tests, logs and why</div>
+        <div class="arch-detail">makes a verdict possible</div>
+      </div>
+      <div class="arch-arrow anim-3"><span>reviewed by</span><div class="arrow-line"></div></div>
+      <div class="arch-box box-green bounce-3">
+        <div class="arch-icon">&#128100;</div>
+        <div class="arch-label text-green">Engineer outer loop</div>
+        <div class="arch-role">Decide &rarr; verify &rarr; approve &rarr; own</div>
+        <div class="arch-detail">accountability: carry the consequence</div>
+      </div>
+    </div>
+    <div class="formula-box anim-4" style="margin-top:clamp(14px,2.2vh,24px);font-size:clamp(12px,1.15vw,16px);padding:clamp(10px,1.3vw,15px);">&#8634;&nbsp; Verdict, constraints and learning shape the next agent run &nbsp;&middot;&nbsp; approve, redirect or refine</div>
+    <p class="anim-4" style="margin-top:clamp(5px,.8vh,8px);font-size:clamp(9px,.72vw,11px);color:var(--text-muted);letter-spacing:.02em;"><a href="https://addyosmani.com/blog/own-the-outer-loop/" target="_blank" rel="noopener" style="color:var(--accent-blue);">Source: Addy Osmani, “Own the Outer Loop”</a></p>
+    <script type="application/json" class="slide-notes">
+{"title":"The engineering role moves to the outer loop","script":"The inner loop is capability: the agent investigates, implements, tests, and reports. The boundary is evidence: diffs, tests, logs, and an explanation of why. The outer loop is accountability: the engineer decides whether the work is worth doing, verifies whether the evidence is sufficient, approves or redirects, and owns the consequence. It is a loop because each verdict, constraint, and lesson shapes the next agent run—not a one-way pipeline ending in a rubber-stamp approval. The slide links to Addy Osmani's written version of his AI Engineer World's Fair 2026 closing keynote.","notes":["Report is part of the agent loop because work must be made reviewable","Evidence separates agent capability from human accountability","Approve, redirect, or refine feeds the next run","Source: Addy Osmani, Own the Outer Loop"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="27">
+    <p class="slide-tag anim-1">EVIDENCE PACKAGE</p>
+    <h2 class="anim-2">Replace “the agent completed it” with proof</h2>
+    <div class="context-map anim-3">
+      <div>Intended change</div>
+      <div>Diff and source references</div>
+      <div>Tests and checks run</div>
+      <div>Expected versus actual</div>
+      <div>Screenshots or observed outcomes</div>
+      <div>Risks, assumptions and rationale</div>
+    </div>
+    <div class="formula-box anim-4" style="margin-top:clamp(16px,2.5vh,28px);font-size:clamp(13px,1.25vw,17px);padding:clamp(11px,1.4vw,16px);">Evidence must let a reviewer <strong>decide</strong>&mdash;not merely confirm that the agent was active.</div>
+    <script type="application/json" class="slide-notes">
+{"title":"Replace completion with proof","script":"A completion message or activity log cannot support a meaningful verdict. The evidence package should state the intended change, show the diff and sources, name the tests and checks run, compare expected with actual behaviour, include screenshots or observed outcomes where useful, and disclose risks, assumptions, and rationale. Review design is now part of the product surface because review capacity and quality must grow with generation capacity.","notes":["Evidence is the boundary between agent capability and human accountability","Artifacts should be specific enough for a reviewer to approve, redirect, or reject","Replace activity reporting with decision-quality evidence"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="28">
+    <p class="slide-tag anim-1">THE SHADOW SIDE OF MORE OUTPUT</p>
+    <h2 class="anim-2">Risks productivity metrics <span class="highlight-red">do not show</span></h2>
+    <p class="subtitle anim-2" style="font-size:clamp(13px,1.25vw,17px);">Output can rise while understanding, judgment and review capacity fall behind.</p>
+    <div class="stats-row anim-3" style="gap:clamp(10px,1.4vw,18px);">
+      <div class="stat-card pop-1" style="padding:clamp(16px,2vw,24px);text-align:left;border-color:rgba(240,136,62,.38);">
+        <div class="stat-label" style="color:var(--accent-orange);">Cognitive debt</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:700;margin-top:clamp(5px,.8vh,8px);">Understanding erodes</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.08vw,15px);line-height:1.5;">Engineers ship generated work without engaging deeply enough with its reasoning.</div>
+      </div>
+      <div class="stat-card pop-2" style="padding:clamp(16px,2vw,24px);text-align:left;border-color:rgba(248,81,73,.38);">
+        <div class="stat-label" style="color:var(--accent-red);">Cognitive surrender</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:700;margin-top:clamp(5px,.8vh,8px);">Confidence substitutes for proof</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.08vw,15px);line-height:1.5;">A persuasive answer is accepted even when it is wrong or insufficiently verified.</div>
+      </div>
+      <div class="stat-card pop-3" style="padding:clamp(16px,2vw,24px);text-align:left;border-color:rgba(210,153,34,.38);">
+        <div class="stat-label" style="color:var(--accent-yellow);">Orchestration tax</div>
+        <div style="font-size:clamp(16px,1.55vw,21px);font-weight:700;margin-top:clamp(5px,.8vh,8px);">Coordination consumes the gain</div>
+        <div class="stat-desc" style="font-size:clamp(12px,1.08vw,15px);line-height:1.5;">Managing many agents uses the attention that parallel execution was meant to save.</div>
+      </div>
+    </div>
+    <div class="formula-box anim-4" style="margin-top:clamp(14px,2.2vh,24px);font-size:clamp(13px,1.25vw,17px);padding:clamp(11px,1.4vw,16px);"><strong>What becomes more valuable:</strong> problem framing, system design, verification, risk assessment and taste.</div>
+    <script type="application/json" class="slide-notes">
+{"title":"The risks productivity metrics don't show","script":"Lines of code, pull-request counts, and completed tasks do not reveal whether engineers still understand the system, whether confident output is being challenged, or whether coordinating agents consumes the expected gain. These are not arguments against agents. They explain why review capacity, judgment, and learning must grow alongside generation capacity. The durable skills are problem framing, system design, verification, risk assessment, and taste.","notes":["Show all three definitions directly; no interaction is required","Durable skills are the response to the risks, not a fourth risk","If review capacity does not grow, the bottleneck moves downstream"]}
+    </script>
+  </div>
+
+<div class="slide" data-slide="29">
+  <p class="slide-tag anim-1">SUMMARY</p>
+  <h2 class="anim-2">Key <span class="highlight-blue">takeaways</span></h2>
+  <div class="status-timeline anim-3" style="margin-top:clamp(12px,1.8vh,20px);gap:clamp(6px,.9vh,9px);">
+    <div class="status-item stag-1" style="padding:clamp(8px,1vw,11px) clamp(12px,1.4vw,18px);"><div class="status-dot blue"></div><div class="status-text">Own inference only when a workload justifies the operational responsibility.</div></div>
+    <div class="status-item stag-2" style="padding:clamp(8px,1vw,11px) clamp(12px,1.4vw,18px);"><div class="status-dot purple"></div><div class="status-text">Routing is a product policy; gateways make its quality, cache and resilience trade-offs explicit.</div></div>
+    <div class="status-item stag-3" style="padding:clamp(8px,1vw,11px) clamp(12px,1.4vw,18px);"><div class="status-dot green"></div><div class="status-text">Autonomous development needs independent judgment and an agent-ready repository.</div></div>
+    <div class="status-item stag-4" style="padding:clamp(8px,1vw,11px) clamp(12px,1.4vw,18px);"><div class="status-dot orange"></div><div class="status-text">When multiple teams keep solving the same problem, turn the solution into a shared platform capability.</div></div>
+    <div class="status-item stag-5" style="padding:clamp(8px,1vw,11px) clamp(12px,1.4vw,18px);"><div class="status-dot yellow"></div><div class="status-text">Always-on agents scale through narrow roles, durable context, evidence and explicit escalation.</div></div>
+    <div class="status-item anim-4" style="padding:clamp(8px,1vw,11px) clamp(12px,1.4vw,18px);"><div class="status-dot green"></div><div class="status-text">Engineers own the outer loop: decide what matters, verify the evidence, approve or redirect, and own the outcome.</div></div>
+  </div>
+  <script type="application/json" class="slide-notes">
+  {"title":"Key takeaways","script":"Six patterns, condensed. Ownership is workload-specific. Routing and gateway behavior are product policy. Autonomous development depends on independent validation and an agent-ready environment. Shared platforms should remove repeated bottlenecks. Always-on agents need narrow scope and escalation. Finally, engineers own the outer loop: deciding what matters, verifying the evidence, approving or redirecting the work, and owning the outcome.","notes":["Recap the six sections in order","Make the Section 6 outer-loop takeaway a full item","End on evidence and accountability"]}
+  </script>
+</div>
+
+<!-- Closing slide -->
+
+<div class="slide" data-slide="30">
+  <div class="glow-blob glow-blue" style="top:30%;left:30%;"></div>
+  <div class="glow-blob glow-green" style="bottom:20%;right:20%;"></div>
+  <h2 class="anim-1" style="font-size:clamp(28px,3.5vw,44px);">Thank you. <span class="gradient-text">Questions?</span></h2>
+  <div class="rainbow-line anim-4 mt-24"></div>
+  <p class="subtitle anim-5" style="font-size:13px;margin-top:8px;">AI Engineer World's Fair 2026 &middot; San Francisco</p>
+  <script type="application/json" class="slide-notes">
+  {"title":"Thank you / Q&A","script":"Thank the audience and open the floor for questions.","notes":["Open the floor for questions"]}
+  </script>
+</div>
+
+</div>
+
+<script>
+/* ===========================================
+   SLIDES RUNTIME — particles, navigation,
+   speaker notes console logging.
+   =========================================== */
+const pc = document.getElementById('particles');
+for (let i = 0; i < 35; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random()*100+'%';
+  p.style.animationDuration = (8+Math.random()*14)+'s';
+  p.style.animationDelay = Math.random()*10+'s';
+  p.style.width = p.style.height = (1+Math.random()*2)+'px';
+  pc.appendChild(p);
+}
+
+const slides = document.querySelectorAll('.slide');
+const progress = document.getElementById('progress');
+const counter = document.getElementById('counter');
+const slideNav = document.getElementById('slideNav');
+let current = 0;
+const total = slides.length;
+
+slides.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'slide-nav-dot' + (i===0?' active':'');
+  dot.addEventListener('click', () => goTo(i));
+  slideNav.appendChild(dot);
+});
+
+function updateUI() {
+  progress.style.width = ((current+1)/total*100)+'%';
+  counter.textContent = `${current+1} / ${total}`;
+  document.querySelectorAll('.slide-nav-dot').forEach((d,i) => d.classList.toggle('active', i===current));
+}
+
+function goTo(index) {
+  if (index<0 || index>=total || index===current) return;
+  current = index;
+  slides.forEach((s,i) => s.classList.toggle('active', i===current));
+  updateUI();
+  showSpeakerNotes(current);
+}
+function next() { goTo(current+1); }
+function prev() { goTo(current-1); }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key==='ArrowRight'||e.key===' '||e.key==='PageDown') { e.preventDefault(); next(); }
+  if (e.key==='ArrowLeft'||e.key==='PageUp') { e.preventDefault(); prev(); }
+  if (e.key==='Home') { e.preventDefault(); goTo(0); }
+  if (e.key==='End') { e.preventDefault(); goTo(total-1); }
+});
+
+let touchStart = 0;
+document.addEventListener('touchstart', (e) => { touchStart=e.touches[0].clientX; });
+document.addEventListener('touchend', (e) => {
+  const diff = touchStart - e.changedTouches[0].clientX;
+  if (Math.abs(diff)>50) { diff>0 ? next() : prev(); }
+});
+
+let wheelCD = false;
+document.addEventListener('wheel', (e) => {
+  if (wheelCD) return; wheelCD = true;
+  setTimeout(() => wheelCD=false, 600);
+  if (e.deltaY>0||e.deltaX>0) next(); else prev();
+}, {passive:true});
+
+updateUI();
+
+function showSpeakerNotes(index) {
+  const slide = slides[index];
+  const notesEl = slide.querySelector('script.slide-notes');
+  console.clear();
+  if (notesEl) {
+    try {
+      const n = JSON.parse(notesEl.textContent);
+      const title = n.title || 'Slide ' + (index + 1);
+      const script = n.script || '';
+      const notes = n.notes || [];
+      var parts = ['\n%c📋 Slide ' + (index+1) + '/' + total + ': ' + title + '\n'];
+      var styles = ['font-size:16px;font-weight:bold;color:#2563eb;'];
+      if (script) { parts.push('\n%c' + script + '\n'); styles.push('font-size:14px;color:#d97706;line-height:1.6;'); }
+      if (notes.length) {
+        notes.forEach(function(note) { parts.push('\n  %c•%c ' + note); styles.push('color:#16a34a;font-size:14px;'); styles.push('color:#16a34a;font-size:14px;'); });
+        parts.push('\n');
+      }
+      parts.push('\n\n\n\n%cUse HTMLSlides presenter app for notes editing and more features.\nhtmlslides.com\n');
+      styles.push('font-size:10px;color:#9ca3af;');
+      console.log.apply(console, [parts.join('')].concat(styles));
+    } catch(e) {}
+  }
+}
+setTimeout(function() { showSpeakerNotes(0); }, 500);
+
+</script>
+</body>
+</html>
