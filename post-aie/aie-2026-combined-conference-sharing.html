@@ -1276,20 +1276,6 @@ img, .image-container { max-width: 100%; max-height: min(50vh, 400px); object-fi
   </div>
 
 <div class="slide" data-slide="4">
-    <p class="slide-tag anim-1">FROM EXAMPLE TO FRAMEWORK</p>
-    <h2 class="anim-2">Generalising into a decision model</h2>
-    <div class="decision-grid decision-grid-four anim-3">
-      <div class="decision-card"><b>Volume</b><span>Is demand high, predictable, and sustained?</span></div>
-      <div class="decision-card"><b>Residency</b><span>Can the data leave its current environment?</span></div>
-      <div class="decision-card"><b>Latency</b><span>Does local or dedicated serving materially change user experience?</span></div>
-      <div class="decision-card"><b>Fit</b><span>Can a smaller or open model satisfy the task quality bar?</span></div>
-    </div>
-    <script type="application/json" class="slide-notes">
-{"title":"Generalising into a decision model","script":"The chart answers one economic scenario, but the reusable decision needs four tests. Look at sustained volume, residency constraints, latency needs, and whether the workload fits a smaller or open model. Cost matters, but it does not decide the architecture alone.","notes":["Volume: demand should be high, predictable, and sustained","Residency and latency can justify ownership independently of cost","Workload fit determines whether owned inference is technically sensible"]}
-  </script>
-  </div>
-
-<div class="slide" data-slide="5">
     <p class="slide-tag anim-1">JULY 2026 &middot; HUGGING FACE SECURITY INCIDENT</p>
     <h2 class="anim-2">Sometimes control matters <span class="highlight-red">regardless of cost</span></h2>
     <div class="cb-wrap anim-3" style="max-width:min(92vw,960px);">
@@ -1312,7 +1298,7 @@ img, .image-container { max-width: 100%; max-height: min(50vh, 400px); object-fi
     </script>
   </div>
 
-<div class="slide" data-slide="6">
+<div class="slide" data-slide="5">
     <p class="slide-tag anim-1">INFERENCE OPERATIONS</p>
     <h2 class="anim-2">Owning inference means owning performance, reliability, and governance</h2>
     <div class="table-wrap anim-3" style="margin-top:clamp(14px,2vh,22px);">
@@ -1332,6 +1318,20 @@ img, .image-container { max-width: 100%; max-height: min(50vh, 400px); object-fi
     <script type="application/json" class="slide-notes">
 {"title":"Owning inference means owning performance, reliability, and governance","script":"Self-hosting provides greater control, but the team assumes responsibility for the full production lifecycle: capacity, efficiency, resilience, security, model lifecycle, and quality. That includes measuring real-workload performance, monitoring and patching the service, responding to incidents, managing capacity, evaluating serving changes, and retiring models. Ownership creates control by making these responsibilities explicit; it does not automatically guarantee lower cost, privacy, or security.","notes":["Emphasise that inference operations are important, non-trivial engineering work","Keep Operations as a separate responsibility","Make utilisation and real-workload measurement explicit"]}
     </script>
+  </div>
+
+<div class="slide" data-slide="6">
+    <p class="slide-tag anim-1">FROM EXAMPLE TO FRAMEWORK</p>
+    <h2 class="anim-2">Generalising into a decision model</h2>
+    <div class="decision-grid decision-grid-four anim-3">
+      <div class="decision-card"><b>Volume</b><span>Is demand high, predictable, and sustained?</span></div>
+      <div class="decision-card"><b>Residency</b><span>Can the data leave its current environment?</span></div>
+      <div class="decision-card"><b>Latency</b><span>Does local or dedicated serving materially change user experience?</span></div>
+      <div class="decision-card"><b>Fit</b><span>Can a smaller or open model satisfy the task quality bar?</span></div>
+    </div>
+    <script type="application/json" class="slide-notes">
+{"title":"Generalising into a decision model","script":"The chart answers one economic scenario, but the reusable decision needs four tests. Look at sustained volume, residency constraints, latency needs, and whether the workload fits a smaller or open model. Cost matters, but it does not decide the architecture alone.","notes":["Volume: demand should be high, predictable, and sustained","Residency and latency can justify ownership independently of cost","Workload fit determines whether owned inference is technically sensible"]}
+  </script>
   </div>
 
 <div class="slide" data-slide="7">

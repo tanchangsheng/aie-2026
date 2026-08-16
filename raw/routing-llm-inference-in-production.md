@@ -2,7 +2,7 @@
 
 **Speakers:** Qianru Lao (Inference, OpenAI), Lu Zhang (Inference, OpenAI)  
 **Org:** OpenAI  
-**Slides:** [slides/routing-llm-inference-in-production/](../slides/routing-llm-inference-in-production/)
+**Slides:** [slides/routing-llm-inference-in-production/](slides/routing-llm-inference-in-production/)
 
 ---
 
@@ -10,11 +10,11 @@
 
 "Routing LLM inference in production: From engine signals to policy"
 
-![Slide 1](../slides/routing-llm-inference-in-production/IMG_8896.HEIC)
+![Slide 1](slides/routing-llm-inference-in-production/IMG_8896.HEIC)
 
 ---
 
-![Slide 2](../slides/routing-llm-inference-in-production/IMG_8897.HEIC)
+![Slide 2](slides/routing-llm-inference-in-production/IMG_8897.HEIC)
 
 ## Slide 2 — What is Inference Load Balancer
 
@@ -38,7 +38,7 @@ Architecture overview: Incoming request → Frontend clusters → **Inference Lo
 
 ---
 
-![Slide 3](../slides/routing-llm-inference-in-production/IMG_8898.HEIC)
+![Slide 3](slides/routing-llm-inference-in-production/IMG_8898.HEIC)
 
 ## Slide 3 — Load Balancing in the "early days": A periodic feedback loop (diagram)
 
@@ -49,7 +49,7 @@ Feedback loop: PERIODIC SIGNAL UPDATES (EWMA / smoothing, PID-like weight update
 
 ---
 
-![Slide 4](../slides/routing-llm-inference-in-production/IMG_8899.HEIC)
+![Slide 4](slides/routing-llm-inference-in-production/IMG_8899.HEIC)
 
 ## Slide 4 — Load Balancing in the "early days": Pros and cons
 
@@ -66,7 +66,7 @@ Feedback loop: PERIODIC SIGNAL UPDATES (EWMA / smoothing, PID-like weight update
 
 ---
 
-![Slide 5](../slides/routing-llm-inference-in-production/IMG_8900.HEIC)
+![Slide 5](slides/routing-llm-inference-in-production/IMG_8900.HEIC)
 
 ## Slide 5 — Which GPU engine should serve each request from a CPU cluster?
 
@@ -79,7 +79,7 @@ Architecture:
 
 ---
 
-![Slide 6](../slides/routing-llm-inference-in-production/IMG_8901.HEIC)
+![Slide 6](slides/routing-llm-inference-in-production/IMG_8901.HEIC)
 
 ## Slide 6 — Separated control plane and data plane
 
@@ -98,7 +98,7 @@ Key design principle: **"No request waits on the data plane."**
 
 ---
 
-![Slide 7](../slides/routing-llm-inference-in-production/IMG_8902.HEIC)
+![Slide 7](slides/routing-llm-inference-in-production/IMG_8902.HEIC)
 
 ## Slide 7 — Three paths through the system
 
@@ -115,7 +115,7 @@ Subtitle: One synchronous request path; two asynchronous control paths.
 
 ---
 
-![Slide 8](../slides/routing-llm-inference-in-production/IMG_8903.HEIC)
+![Slide 8](slides/routing-llm-inference-in-production/IMG_8903.HEIC)
 
 ## Slide 8 — Why nearest-only fails
 
@@ -130,7 +130,7 @@ The 20 RPS spillover from Region 2 routes to Region 3's spare capacity. Nearest-
 
 ---
 
-![Slide 9](../slides/routing-llm-inference-in-production/IMG_8904.HEIC)
+![Slide 9](slides/routing-llm-inference-in-production/IMG_8904.HEIC)
 
 ## Slide 9 — Optimizer: From signals to weights
 
@@ -154,7 +154,7 @@ Minimize expected end-to-end latency across all routed traffic. Balance network 
 
 ---
 
-![Slide 10](../slides/routing-llm-inference-in-production/IMG_8905.HEIC)
+![Slide 10](slides/routing-llm-inference-in-production/IMG_8905.HEIC)
 
 ## Slide 10 — Protection mechanisms
 
